@@ -1,0 +1,37 @@
+.jumbotron{
+    position: relative;
+    z-index:-101;
+  }
+  
+  #video-background { 
+    position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: -100;
+      width:100%;
+  }
+  .jumbotron .container1 {
+    position: relative;
+    z-index: 1;
+    background-color: white;
+  font-family: "Times New Roman", Times, serif;
+  
+  font-weight: bold;
+  border-style: groove;
+    width: 45%;
+    padding-left:  3px;
+    color: #006622;
+    opacity: 0.8;
+  
+  
+  }
+  
+  .jumbotron .container2 {
+    position: relative;
+    z-index: 1;
+  
+  
+  }

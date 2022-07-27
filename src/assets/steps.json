@@ -1,0 +1,53 @@
+{"steps":[{
+    "instruction_id" : 1,
+    "instruction_name" : "3D-Drucker Teile",
+    "instruction_text" : "Instruction_Text",
+    "answers":[{
+    "answer_id": 1,
+    "answer_text": "Weiter...",
+    "answer_boolean": true,
+    "next_instruction": 2
+    }
+    ]},
+    {
+        "instruction_id":2,
+        "instruction_name": "Altes Filament entfernen",
+        "instruction_text": "",
+        "question": "",
+        "answers":[{
+            "answer_id": 1,
+            "answer_boolean": true,
+            "answer_text": "",
+            "next_instruction": 3
+        },
+        {
+            "anwer_id": 2,
+            "answer_boolean": false,
+            "answer_text": "",
+           "answer_solution_id": 2
+        }
+    
+        ]
+    },
+    {
+        "instruction_id":3,
+        "instruction_name": "Neues Filament auffuehlen",
+        "instruction_text": "",
+        "question": "",
+        "answers":[{
+            "answer_id": 1,
+            "answer_boolean": true,
+            "answer_text": "",
+            "next_instruction": 4
+        },
+        {
+            "anwer_id": 2,
+            "answer_boolean": false,
+            "answer_text": "",
+           "answer_solution_id": 3
+        }
+    
+        ]
+    }
+    ]
+    }
