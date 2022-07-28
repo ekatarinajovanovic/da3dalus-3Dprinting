@@ -1,17 +1,42 @@
-<div class="container-fluid">
-    <div class="row">
-      <div class="col-sm">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title"></h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{stepsList[0]?.instruction_name}}</h6>
-            <p class="card-text">{{stepsList[0]?.instruction_text}}</p>
-            
-            <button>Next instruction</button>
-          </div>
-        </div>
+<div class="container mt-5">
+  <div class="card">
+    <div class="d-flex justify-content-between p-3">
+      <h3> <img src="/assets/img/icons8-instructions-64.png" width="30" height="30" class="d-inline-block align-top"
+          alt="logo">
+        Einstellfahrplan -
+        <small class="text-muted">{{stepsList[currentStep]?.instruction_name}}</small>
+
+      </h3>
+      <div class="instructions_header">
+
+        <h6>Anwendung: {{stepsList[currentStep]?.instruction_id}} / {{stepsList.length}}</h6>
+        <span></span>
+
       </div>
-      
-     
+
+
+
+    </div>
+    <div class="d-flex justify-content-between py-3">
+      <div class="img_instruction">
+        <img src="{{stepsList[currentStep]?.instruction_img}}" alt="" width="560" height="560">
+      </div>
+      <div class="text">
+        <p [innerText]="stepsList[currentStep]?.instruction_text"></p>
+      </div>
+
+    </div>
+    <div class="d-flex justify-content-between py-3">
+      <div class="previousinst">
+        <button class="btn" aria-hidden="true"><i class="fa-solid fa-arrow-left-long fa-2x"></i></button>
+      </div>
+      <div class="probleminst">
+        <button class="btn" aria-hidden="true"><i class="fa-solid fa-file-circle-question fa-2x"></i></button>
+      </div>
+      <div class="nextinst">
+        <button class="btn" aria-hidden="true"><i class="fa-solid fa-arrow-right-long fa-2x"></i></button>
+      </div>
     </div>
   </div>
+
+</div>
