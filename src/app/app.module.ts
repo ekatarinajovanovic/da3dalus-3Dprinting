@@ -14,7 +14,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    InstructionsComponent,
+    InstructionsComponent
     
   ],
   imports: [
