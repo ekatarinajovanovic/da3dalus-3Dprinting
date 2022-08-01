@@ -34,10 +34,17 @@
         <button class="btn" [hidden]="currentStep == 0" aria-hidden="true" (click)="previousInstruction()"><i class="fa-solid fa-arrow-left-long fa-2x"></i></button>
       </div>
       <div class="probleminst">
-        <button class="btn" aria-hidden="true" *ngIf="stepsList[currentStep]?.problems?.length > 0" ><i class="fa-solid fa-file-circle-question fa-2x"></i></button>
+        <button class="btn" aria-hidden="true" *ngIf="stepsList[currentStep]?.problems?.length > 0" (click)="listProblems()"  ><i class="fa-solid fa-file-circle-question fa-2x"></i></button>
       </div>
       <div class="nextinst">
         <button class="btn" aria-hidden="true" (click)="nextInstruction()"  [hidden]="currentStep == stepsList.length - 1" ><i class="fa-solid fa-arrow-right-long fa-2x"></i></button>
+      </div>
+    </div>
+    
+    <div *ngIf = "problemsdiv"  >
+      <div class="list" *ngFor="let steps of stepsList[currentStep].problems">
+        <h2>{{ steps.problem_text }}</h2>
+        
       </div>
     </div>
   </ng-container>

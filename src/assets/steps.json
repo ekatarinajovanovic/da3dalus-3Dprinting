@@ -17,11 +17,13 @@
                 {
                     "problem_id": 1,
                     "answer_boolean": true,
+                    "problem_text": "Problem 1 ",
                     "answer_text": "",
                     "next_instruction": 3
                 },
                 {
                     "anwer_id": 2,
+                    "problem_text": "Problem 2 ",
                     "answer_boolean": false,
                     "answer_text": "",
                     "answer_solution_id": 2

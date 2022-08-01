@@ -13,6 +13,7 @@ export class InstructionsComponent implements OnInit {
   public currentStep!: number;
   public list_size: number = 0;
   public current_instruction: string ="";
+  public problemsdiv: boolean = false;
  
 
  
@@ -62,5 +63,15 @@ export class InstructionsComponent implements OnInit {
       }
        
       );
+  }
+
+  listProblems(){
+   if(this.problemsdiv==false){
+    this.problemsdiv=true;
+  
+   }
+   else{
+    this.problemsdiv=false;
+   }
   }
 }
