@@ -23,8 +23,7 @@ export class InstructionsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.rout.queryParams.subscribe((queryParams) => {
-      this.currentStep=queryParams['id'];});
+  
       this.rout.params.subscribe((params) => {
         this.currStep=params['id'];});
    this.getAllSteps();
@@ -54,14 +53,12 @@ export class InstructionsComponent implements OnInit {
     
   }
   previousInstruction(){
-    this.currentStep --;
+    this.currStep--;
     this.router.navigate(
-      ['/instructions'],
-      {
-        queryParams: { id: this.currentStep }
-      }
-       
-      );
+      ['/instructions', this.currStep]
+     
+    )
+    
   }
 
   listProblems(){
