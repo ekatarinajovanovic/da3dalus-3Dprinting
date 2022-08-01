@@ -8,8 +8,9 @@ import {HeaderComponent} from './header/header.component';
 const routes: Routes = [
   {path: "", redirectTo: 'home', pathMatch:"full" },
   {path: "home", component: HomeComponent},
-{path: "instructions", component: InstructionsComponent},
-{path: "instructions/:id", component: InstructionsComponent}
+  {path: "instructions/:id", component: InstructionsComponent},
+{path: "instructions", component: InstructionsComponent}
+
 
 ];
 

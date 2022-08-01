@@ -10,7 +10,7 @@ import { ActivatedRoute, Router} from '@angular/router';
 })
 export class InstructionsComponent implements OnInit {
   public stepsList: any = [];
-  public currentStep!: number;
+  public currentStep : number = 0;
   public list_size: number = 0;
   public current_instruction: string ="";
   public problemsdiv: boolean = false;
@@ -26,8 +26,8 @@ export class InstructionsComponent implements OnInit {
     this.getAllSteps();
    
         
-    this.rout.queryParams.subscribe((params) => {
-      this.currentStep=params['id'];
+    this.rout.queryParams.subscribe((queryParams) => {
+      this.currentStep=queryParams['id'];
     });
   
 
