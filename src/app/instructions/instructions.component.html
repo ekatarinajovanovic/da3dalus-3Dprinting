@@ -4,12 +4,12 @@
       <h3> <img src="/assets/img/icons8-instructions-64.png" width="30" height="30" class="d-inline-block align-top"
           alt="logo">
         Einstellfahrplan -
-        <small class="text-muted">{{stepsList[currentStep]?.instruction_name}}</small>
+        <small class="text-muted">{{stepsList[currStep]?.instruction_name}}</small>
 
       </h3>
       <div class="instructions_header">
 
-        <h6>Anwendung: {{stepsList[currentStep]?.instruction_id}} / {{stepsList.length}}</h6>
+        <h6>Anwendung: {{stepsList[currStep]?.instruction_id}} / {{stepsList.length}}</h6>
         <span></span>
 
       </div>
@@ -19,11 +19,11 @@
     </div>
     <div class="d-flex justify-content-between py-3">
       <div class="img_instruction">
-        <img src="{{stepsList[currentStep]?.instruction_img}}" alt="" width="560" height="560">
+        <img src="{{stepsList[currStep]?.instruction_img}}" alt="" width="560" height="560">
       </div>
       <div class="text">
-        <p [innerText]="stepsList[currentStep]?.instruction_text"></p>
-        <p>{{currentStep}}</p>
+        <p [innerText]="stepsList[currStep]?.instruction_text"></p>
+        <p>{{currStep}}</p>
       
       </div>
 
@@ -31,18 +31,18 @@
     <ng-container>
     <div class="d-flex justify-content-between py-3">
       <div class="previousinst">
-        <button class="btn" [hidden]="currentStep == 0" aria-hidden="true" (click)="previousInstruction()"><i class="fa-solid fa-arrow-left-long fa-2x"></i></button>
+        <button class="btn" [hidden]="currStep == 0" aria-hidden="true" (click)="previousInstruction()"><i class="fa-solid fa-arrow-left-long fa-2x"></i></button>
       </div>
       <div class="probleminst">
-        <button class="btn" aria-hidden="true" *ngIf="stepsList[currentStep]?.problems?.length > 0" (click)="listProblems()"  ><i class="fa-solid fa-file-circle-question fa-2x"></i></button>
+        <button class="btn" aria-hidden="true" *ngIf="stepsList[currStep]?.problems?.length > 0" (click)="listProblems()"  ><i class="fa-solid fa-file-circle-question fa-2x"></i></button>
       </div>
       <div class="nextinst">
-        <button class="btn" aria-hidden="true" (click)="nextInstruction()"  [hidden]="currentStep == stepsList.length - 1" ><i class="fa-solid fa-arrow-right-long fa-2x"></i></button>
+        <button class="btn" aria-hidden="true" (click)="nextInstruction()"  [hidden]="currStep == stepsList.length - 1" ><i class="fa-solid fa-arrow-right-long fa-2x"></i></button>
       </div>
     </div>
     
     <div *ngIf = "problemsdiv"  >
-      <ol class="list" *ngFor="let steps of stepsList[currentStep].problems">
+      <ol class="list" *ngFor="let steps of stepsList[currStep].problems">
         <li>
 
           <div class="d-flex justify-content-between py-3">
