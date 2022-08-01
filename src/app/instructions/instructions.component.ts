@@ -22,13 +22,13 @@ export class InstructionsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
-    this.getAllSteps();
+    this.rout.queryParams.subscribe((queryParams) => {
+      this.currentStep=queryParams['id'];});
+   
+   this.getAllSteps();
    
         
-    this.rout.queryParams.subscribe((queryParams) => {
-      this.currentStep=queryParams['id'];
-    });
+    
   
 
    
@@ -50,8 +50,7 @@ export class InstructionsComponent implements OnInit {
       {
         queryParams: { id: this.currentStep }
       }
-       
-      );
+    )
     
   }
   previousInstruction(){

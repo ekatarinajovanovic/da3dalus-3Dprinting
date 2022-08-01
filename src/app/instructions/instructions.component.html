@@ -42,11 +42,20 @@
     </div>
     
     <div *ngIf = "problemsdiv"  >
-      <div class="list" *ngFor="let steps of stepsList[currentStep].problems">
-        <h2>{{ steps.problem_text }}</h2>
+      <ol class="list" *ngFor="let steps of stepsList[currentStep].problems">
+        <li>
+
+          <div class="d-flex justify-content-between py-3">
+            <div class="problem">{{steps.problem_text}} </div>
+            <div class="problem_solution">TEXT </div>
+          </div>
+
+        </li>
         
-      </div>
+        
+      </ol>
     </div>
+ 
   </ng-container>
   </div>
 
