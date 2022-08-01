@@ -4,22 +4,21 @@
             "instruction_id": 1,
             "instruction_name": "3D-Drucker Teile",
             "instruction_text": " MOTHERBOARD - auch als Mainboard oder Control Board bezeichnet wird. Wie der Name schon sagt, ist diese Komponente für die Aufrechterhaltung der reibungslosen Verarbeitung der Maschine verantwortlich. \n    PRINTER BED- Dies ist die Komponente, in der sich die Modelle befinden.   \n FRAME - Frame hilft, alle anderen Komponenten Ihres 3D-Druckers an einem Ort zusammenzuhalten. Es erhält auch die Stabilität der gesamten Maschine. Wenn Ihr Rahmen robust ist, haben Sie einen haltbareren 3D-Drucker. \n EXTRUDER - Der Extruder, auch Druckkopf genannt, extrudiert das Filament und legt es auf dem Druckbett ab. Der Extruder kann in zwei Abschnitte eingeteilt werden. Eines wird als kaltes Ende bezeichnet, während das andere als heißes Ende bekannt ist. \n ......     ",
-            "instruction_img" : "/assets/img/i11.jpeg",
+            "instruction_img": "/assets/img/i11.jpeg",
             "instruction video": ""
-           
         },
         {
             "instruction_id": 2,
             "instruction_name": "Altes Filament entfernen",
             "instruction_text": "5454",
+            "instruction_img" : "/assets/img/i11.jpeg",
             "question": "",
             "problems": [
                 {
                     "problem_id": 1,
-                    "answer_boolean": true,
+                    "problem_button": "Radio",
                     "problem_text": "Problem 1 ",
-                    "answer_text": "",
-                    "next_instruction": 3
+                    "answer_text": "solution 1"
                 },
                 {
                     "anwer_id": 2,
