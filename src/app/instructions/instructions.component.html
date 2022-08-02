@@ -3,9 +3,9 @@
     <div class="d-flex justify-content-between p-3">
       <h3> <img src="/assets/img/icons8-instructions-64.png" width="30" height="30" class="d-inline-block align-top"
           alt="logo">
-        Einstellfahrplan -
+        Einstellfahrplan - 
         <small class="text-muted">{{stepsList[currStep]?.instruction_name}}</small>
-
+       
       </h3>
       <div class="instructions_header">
 
@@ -17,17 +17,56 @@
 
 
     </div>
+  <!--     Instructions with text and img     -->
     <div class="d-flex justify-content-between py-3">
-      <div class="img_instruction">
+      <div class="img_instruction" *ngIf="stepsList[currStep]?.instruction_img != null">
         <img src="{{stepsList[currStep]?.instruction_img}}" alt="" width="560" height="560">
       </div>
-      <div class="text">
+      <div class="text" *ngIf="stepsList[currStep]?.instruction_text != null">
         <p [innerText]="stepsList[currStep]?.instruction_text"></p>
         
 
       </div>
-
     </div>
+<!--     Instructions with questions     -->
+
+
+  <div class="d-flex justify-content-center flex-nowrap" >
+
+
+    <div class="card" id="questions" style="width: 30rem;" *ngIf="stepsList[currStep]?.questions?.length > 0">
+      <ul class="list">
+        <li>
+      
+      <div class="card-body" >
+        <h5 class="card-title">{{stepsList[currStep].questions[currentquestion].question_name}}</h5>
+        <p class="card-text">{{stepsList[currStep].questions[currentquestion].question_text}}</p>
+        <div   *ngFor="let solutions of stepsList[currStep].questions[currentquestion].answers">
+        <p><input id="{{solutions}}" (change)="onItemChange($event)" [value]='solutions.answer_id'
+                    type="radio" name="solutions">{{solutions.answer_text}}</p>
+                    
+                    
+      </div>
+    </div>
+    <p *ngIf="stepsList[currStep].questions[currentquestion].answers[choosen].answer_value ==='no'" > <img src="/assets/img/icons8-bulb-64.png" alt=""> {{stepsList[currStep].questions[currentquestion].answers[choosen].solution_text}} <br>
+      <iframe width="420" height="315" *ngIf="stepsList[currStep].questions[currentquestion].answers[choosen].solution_video !=null"
+      src="https://www.youtube.com/embed/xz_aFuUqoSM">
+      </iframe>
+      
+
+    </p>
+    </li>
+    </ul>
+    </div>
+
+
+
+    
+  </div>
+
+
+</div>
+    <!--     Routing     -->
     <ng-container>
       <div class="d-flex justify-content-between py-3">
         <div class="previousinst">
@@ -44,36 +83,8 @@
         </div>
       </div>
 
-      <div *ngIf="problemsdiv">
-        <ul class="list" *ngFor="let steps of stepsList[currStep].problems">
-          <li>
-
-            <div class="d-flex justify-content-between py-3">
-              <div class="problem">
-                <p>{{steps.problem_text}} <br> </p>
-                <div class="problem_solutions" *ngIf="steps.problem_button == 'Radio'">
-                  <ul *ngFor="let solutions of steps.answers">
-
-                    <li><input id="{{solutions}}" (change)="onItemChange($event)" [value]='solutions.solution_text'
-                        type="radio" name="solutions">{{solutions.answer_text}}</li>
-
-
-
-                  </ul>
-                  <div class="problem_solution">{{choosen}} </div>
-                </div>
-
-              </div>
-              
-            </div>
-
-          </li>
-
-
-        </ul>
-      </div>
+ 
 
     </ng-container>
   </div>
 
-</div>

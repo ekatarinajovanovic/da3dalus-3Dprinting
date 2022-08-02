@@ -4,44 +4,113 @@
             "instruction_id": 1,
             "instruction_name": "3D-Drucker Teile",
             "instruction_text": " MOTHERBOARD - auch als Mainboard oder Control Board bezeichnet wird. Wie der Name schon sagt, ist diese Komponente für die Aufrechterhaltung der reibungslosen Verarbeitung der Maschine verantwortlich. \n    PRINTER BED- Dies ist die Komponente, in der sich die Modelle befinden.   \n FRAME - Frame hilft, alle anderen Komponenten Ihres 3D-Druckers an einem Ort zusammenzuhalten. Es erhält auch die Stabilität der gesamten Maschine. Wenn Ihr Rahmen robust ist, haben Sie einen haltbareren 3D-Drucker. \n EXTRUDER - Der Extruder, auch Druckkopf genannt, extrudiert das Filament und legt es auf dem Druckbett ab. Der Extruder kann in zwei Abschnitte eingeteilt werden. Eines wird als kaltes Ende bezeichnet, während das andere als heißes Ende bekannt ist. \n ......     ",
-            "instruction_img": "/assets/img/i11.jpeg",
-            "instruction video": ""
+            "instruction_img": "/assets/img/i11.jpeg"
         },
         {
             "instruction_id": 2,
-            "instruction_name": "Altes Filament entfernen",
-            "instruction_text": "Instruction_TEXT",
-            "instruction_img" : "/assets/img/i11.jpeg",
-            "question": "",
-            "problems": [
+            "instruction_name": "Aufbaukontrolle",
+            "questions": [
                 {
-                    "problem_id": 1,
-                    "problem_button": "Radio",
-                    "problem_text": "Problem 1 ",
-                    "answers":[{
-                        "answer_id": 1,
-                        "answer_text": "Error 1",
-                        "solution_text" : "SOlution 1"
-                    },
-                    {
-                        "answer_id": 2,
-                        "answer_text": "Error 2",
-                        "solution_text" : "SOlution 2"
-                    }
-                ]
+                    "question_id": 1,
+                    "question_button": "Radio",
+                    "question_name": "Hast du das Rechtwinkligkeit überprüft?",
+                    "answers": [
+                        {
+                            "answer_id": 0,
+                            "answer_value": "yes",
+                            "answer_text": "Ja"
+                            
+                        },
+                        {
+                            "answer_id": 1,
+                            "answer_value": "no",
+                            "answer_text": "Nein, wie mache ich das?",
+                            "solution_text": "Um sicher zu sein nimm dir ein Winkelmesser! "
+                        }
+                    ]
                 },
                 {
-                    "anwer_id": 2,
-                    "problem_text": "Problem 2 ",
-                    "answer_boolean": false,
-                    "answer_text": "",
-                    "answer_solution_id": 2
+                    "question_id": 2,
+                    "question_button": "Radio",
+                    "question_name": "Hast du den Verschraubung überprüft?",
+                    "answers": [
+                        {
+                            "answer_id": 0,
+                            "answer_value": "yes",
+                            "answer_text": "Ja"
+                            
+                        },
+                        {
+                            "answer_id": 1,
+                            "answer_value": "no",
+                            "answer_text": "Nein, wie mache ich das?",
+                            "solution_text": "Nimm dir ein Schraubenzieher, und drehe ganz bis zum ende! "
+                        }
+                    ]
+                },
+                {
+                    "question_id": 3,
+                    "question_button": "Radio",
+                    "question_name": "Hast du die Leichgängingen Achsen überprüft?",
+                    "answers": [
+                        {
+                            "answer_id": 0,
+                            "answer_value": "yes",
+                            "answer_text": "Ja",
+                            "next_question": 2
+                        },
+                        {
+                            "answer_id": 1,
+                            "answer_value": "no",
+                            "answer_text": "Nein, wie mache ich das?",
+                            "solution_text": "SOLUTION "
+                        }
+                    ]
+                },
+                {
+                    "question_id": 3,
+                    "question_button": "Radio",
+                    "question_name": "Hast du Rimmenspanung überprüft?",
+                    "answers": [
+                        {
+                            "answer_id": 0,
+                            "answer_value": "yes",
+                            "answer_text": "Ja",
+                            "next_question": 2
+                        },
+                        {
+                            "answer_id": 1,
+                            "answer_value": "no",
+                            "answer_text": "Nein, wie mache ich das?",
+                            "solution_text": "Nimm dir Riemenspannungsmessgerät  "
+                        }
+                    ]
+                },
+                {
+                    "question_id": 3,
+                    "question_button": "Radio",
+                    "question_name": "Hast du Hotend richtig aufgebaut?",
+                    "answers": [
+                        {
+                            "answer_id": 0,
+                            "answer_value": "yes",
+                            "answer_text": "Ja",
+                            "next_question": 2
+                        },
+                        {
+                            "answer_id": 1,
+                            "answer_value": "no",
+                            "answer_text": "Nein, wie mache ich das?",
+                            "solution_text": "Schau dir Video an! ",
+                            "solution_video": "https://www.youtube.com/embed/xz_aFuUqoSM"
+                        }
+                    ]
                 }
             ]
         },
         {
             "instruction_id": 3,
-            "instruction_name": "Neues Filament auffuehlen",
+            "instruction_name": "Bettabstand und Brim",
             "instruction_text": "",
             "question": "",
             "problems": [
