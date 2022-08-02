@@ -10,7 +10,7 @@
         {
             "instruction_id": 2,
             "instruction_name": "Altes Filament entfernen",
-            "instruction_text": "5454",
+            "instruction_text": "Instruction_TEXT",
             "instruction_img" : "/assets/img/i11.jpeg",
             "question": "",
             "problems": [
@@ -18,7 +18,17 @@
                     "problem_id": 1,
                     "problem_button": "Radio",
                     "problem_text": "Problem 1 ",
-                    "answer_text": "solution 1"
+                    "answers":[{
+                        "answer_id": 1,
+                        "answer_text": "Error 1",
+                        "solution_text" : "SOlution 1"
+                    },
+                    {
+                        "answer_id": 2,
+                        "answer_text": "Error 2",
+                        "solution_text" : "SOlution 2"
+                    }
+                ]
                 },
                 {
                     "anwer_id": 2,

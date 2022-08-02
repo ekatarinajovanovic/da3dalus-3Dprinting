@@ -15,6 +15,7 @@ export class InstructionsComponent implements OnInit {
   public list_size: number = 0;
   public current_instruction: string ="";
   public problemsdiv: boolean = false;
+  public choosen:string="";
  
 
  
@@ -70,4 +71,7 @@ export class InstructionsComponent implements OnInit {
     this.problemsdiv=false;
    }
   }
+  onItemChange(e:any) {
+    this.choosen= e.target.value;
+ }
 }
