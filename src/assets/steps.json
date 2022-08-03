@@ -110,23 +110,61 @@
         },
         {
             "instruction_id": 3,
-            "instruction_name": "Bettabstand und Brim",
+            "instruction_name": "Altes Filament entfernen",
             "instruction_text": "",
             "question": "",
-            "problems": [
+            "instructions_filament": [
                 {
-                    "answer_id": 1,
-                    "answer_boolean": true,
-                    "answer_text": "",
-                    "next_instruction": 4
+                    "instructions_filament_id": 0,
+                    "instructions_filament_checked": false,
+                    "instructions_filament_text": "Erhitzen Sie die Düse, bis sie je nach verwendetem Material die Schmelztemperatur erreicht. Um die genaue Temperatur zu kennen, auf die es geschmolzen werden soll, überprüfen Sie die Filamentspule. Schalten Sie nun Ihren Drucker ein und klicken Sie in den Einstellungen auf die Schaltfläche Temperatur."
+                    
                 },
                 {
-                    "anwer_id": 2,
-                    "answer_boolean": false,
-                    "answer_text": "",
-                    "answer_solution_id": 3
+                    "instructions_filament_id": 1,
+                    "instructions_filament_checked": false,
+                    "instructions_filament_text": "Wählen Sie die Einstellung der Düsentemperatur in Ihrem 3D-Drucker aus."
+                },
+                {
+                    "instructions_filament_id": 2,
+                    "instructions_filament_checked": false,
+                    "instructions_filament_text": "Sobald das heiße Ende auf die entsprechende Temperatur erhitzt ist, müssen Sie nur noch den Griff am Filament lösen, indem Sie den Extruderhebel drücken. Die Filamentspule kann dann hinter dem Extruder angezogen und vollständig entfernt werden."
+                    
                 }
+                
             ]
+        },
+        {
+            "instruction_id": 4,
+            "instruction_name": "Neues Filament auffühlen",
+            "instruction_text": "",
+            "instructions_filament": [
+                {
+                    "instructions_filament_id": 0,
+                    "instructions_filament_checked": false,
+                    "instructions_filament_text": "Sobald das alte Filament entfernt wurde, ist die Düse frei und Sie können mit dem Laden eines neuen Filaments beginnen. Für 3D-Drucker wie den Prusa, Anet oder Ender 3 ist eine Sache, die hilft, einen scharfen, abgewinkelten Schnitt am Ende des Filaments vor dem Laden zu machen."
+                    
+                },
+                {
+                    "instructions_filament_id": 1,
+                    "instructions_filament_checked": false,
+                    "instructions_filament_text": "Nachdem Sie den Schnitt gemacht haben, legen Sie das Filament in den Extruder. Schieben Sie das Material vorsichtig den Extruder nach oben, bis Sie ein wenig Widerstand spüren. Dies deutet darauf hin, dass das Material die Düse erreicht hat."
+                    
+                },
+                {
+                    "instructions_filament_id": 2,
+                    "instructions_filament_checked": false,
+                    "instructions_filament_text": "Wenn das neue Filament ein kreisförmiges Ende hat, kann es schwierig sein, es dem Extruder zuzuführen. Experten mit 3D-Druck sagen, dass das Beste, was zu tun ist, das Ende des Filamentmaterials vorsichtig zu biegen, sowie ein wenig Verdrehen, um es durch den Eingang des Extruders zu bekommen."
+                    
+                }
+                
+            ]
+        },
+        {
+            "instruction_id": 5,
+            "instruction_name": "Bett Levelling",
+            "instruction_text": ""
+            
         }
     ]
 }

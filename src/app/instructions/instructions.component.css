@@ -9,3 +9,14 @@ ul {
   #questions{
     margin-bottom: 5%;
   }
+  #button_div{
+    text-align: right;
+
+  }
+ #button_check{
+  border: none;
+  outline: none;
+ }
+ #video_filament{
+  margin-top: 2%;
+ }

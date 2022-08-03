@@ -3,9 +3,9 @@
     <div class="d-flex justify-content-between p-3">
       <h3> <img src="/assets/img/icons8-instructions-64.png" width="30" height="30" class="d-inline-block align-top"
           alt="logo">
-        Einstellfahrplan - 
+        Einstellfahrplan -
         <small class="text-muted">{{stepsList[currStep]?.instruction_name}}</small>
-       
+
       </h3>
       <div class="instructions_header">
 
@@ -17,55 +17,100 @@
 
 
     </div>
-  <!--     Instructions with text and img     -->
+    <!--     Instructions with text and img     -->
     <div class="d-flex justify-content-between py-3">
       <div class="img_instruction" *ngIf="stepsList[currStep]?.instruction_img != null">
         <img src="{{stepsList[currStep]?.instruction_img}}" alt="" width="560" height="560">
       </div>
       <div class="text" *ngIf="stepsList[currStep]?.instruction_text != null">
         <p [innerText]="stepsList[currStep]?.instruction_text"></p>
-        
+
 
       </div>
     </div>
-<!--     Instructions with questions     -->
+    <!--  END - Instructions with text and img        -->
+
+    <!--     Instructions with questions     -->
 
 
-  <div class="d-flex justify-content-center flex-nowrap" >
+    <div class="d-flex justify-content-center flex-nowrap">
 
 
-    <div class="card" id="questions" style="width: 30rem;" *ngIf="stepsList[currStep]?.questions?.length > 0">
-      <ul class="list">
-        <li>
-      
-      <div class="card-body" >
-        <h5 class="card-title">{{stepsList[currStep].questions[currentquestion].question_name}}</h5>
-        <p class="card-text">{{stepsList[currStep].questions[currentquestion].question_text}}</p>
-        <div   *ngFor="let solutions of stepsList[currStep].questions[currentquestion].answers">
-        <p><input id="{{solutions}}" (change)="onItemChange($event)" [value]='solutions.answer_id'
-                    type="radio" name="solutions">{{solutions.answer_text}}</p>
-                    
-                    
+      <div class="card" id="questions" style="width: 30rem;" *ngIf="stepsList[currStep]?.questions?.length > 0">
+        <ul class="list">
+          <li>
+
+            <div class="card-body">
+              <h5 class="card-title">{{stepsList[currStep].questions[currentquestion].question_name}}</h5>
+              <p class="card-text">{{stepsList[currStep].questions[currentquestion].question_text}}</p>
+              <div *ngFor="let solutions of stepsList[currStep].questions[currentquestion].answers">
+                <p><input id="{{solutions}}" (change)="onItemChange($event)" [value]='solutions.answer_id' type="radio"
+                    name="solutions">{{solutions.answer_text}}</p>
+
+
+              </div>
+            </div>
+            <p *ngIf="stepsList[currStep].questions[currentquestion].answers[choosen].answer_value ==='no'"> <img
+                src="/assets/img/icons8-bulb-64.png" alt="">
+              {{stepsList[currStep].questions[currentquestion].answers[choosen].solution_text}} <br>
+              <iframe width="420" height="315"
+                *ngIf="stepsList[currStep].questions[currentquestion].answers[choosen].solution_video !=null"
+                src="https://www.youtube.com/embed/xz_aFuUqoSM">
+              </iframe>
+
+
+            </p>
+          </li>
+        </ul>
+      </div>
+
+
+
+    </div>
+
+    <!--     END - Instructions with questions    -->
+    <!--     Instructions with steps and checked button   -->
+    <div class="d-flex justify-content-center flex-nowrap" *ngIf="stepsList[currStep]?.instructions_filament != null">
+      <div class="card" style="width: 38rem;">
+
+        <div class="card-body">
+          <p class="card-text">{{stepsList[currStep]?.instructions_filament[0].instructions_filament_text}} </p>
+        </div>
+
+        <div class="card-button" id="button_div">
+          <button class="btn" id="button_check" (click)="nextFilament(); filamentChecked = true;" [disabled]="filamentChecked"
+            *ngIf="stepsList[currStep]?.instructions_filament[0].instructions_filament_checked ===false"><i
+              class="{{buttonVal}}"></i></button>
+          </div>
       </div>
     </div>
-    <p *ngIf="stepsList[currStep].questions[currentquestion].answers[choosen].answer_value ==='no'" > <img src="/assets/img/icons8-bulb-64.png" alt=""> {{stepsList[currStep].questions[currentquestion].answers[choosen].solution_text}} <br>
-      <iframe width="420" height="315" *ngIf="stepsList[currStep].questions[currentquestion].answers[choosen].solution_video !=null"
-      src="https://www.youtube.com/embed/xz_aFuUqoSM">
-      </iframe>
-      
+    <div class="d-flex justify-content-center flex-nowrap" *ngFor="let instructions of stepsFilaments">
+     
+      <div class="card" style="width: 38rem;" >
 
-    </p>
-    </li>
-    </ul>
+        <div class="card-body">
+          <p class="card-text">{{instructions.text}} </p>
+        </div>
+
+        <div class="card-button" id="button_div">
+          
+              <button class="btn" id="button_check" (click)="nextFilament(); instructions.checked = true; instructions.button='fa-solid fa-check';" [disabled]="instructions.checked">
+                <i class="{{instructions.button}}"></i></button>
+                
+        </div>
+      </div>
     </div>
-
-
-
-    
+  <div class="d-flex justify-content-center flex-nowrap" id="video_filament" >
+    <iframe width="600" height="315"
+    *ngIf="video"
+    src="https://www.youtube.com/embed/QwtfK-M_cpI">
+  </iframe>
   </div>
+    
+   
+    <!--    END -  Instructions with steps and checked button   -->
 
 
-</div>
     <!--     Routing     -->
     <ng-container>
       <div class="d-flex justify-content-between py-3">
@@ -83,8 +128,9 @@
         </div>
       </div>
 
- 
+
 
     </ng-container>
-  </div>
 
+  </div>
+</div>
