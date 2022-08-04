@@ -21,7 +21,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/web.config"
+              "src/web.config",
+              "assets/img/logo.png"
             ],
             "styles": [
               "src/styles.css"

@@ -69,7 +69,7 @@
     </div>
 
     <!--     END - Instructions with questions    -->
-    <!--     Instructions with steps and checked button   -->
+    <!--     Instructions with steps and checked button - FILAMENT EDITION  -->
     <div class="d-flex justify-content-center flex-nowrap" *ngIf="stepsList[currStep]?.instructions_filament != null">
       <div class="card" style="width: 38rem;">
 
@@ -78,36 +78,78 @@
         </div>
 
         <div class="card-button" id="button_div">
-          <button class="btn" id="button_check" (click)="nextFilament(); filamentChecked = true;" [disabled]="filamentChecked"
+          <button class="btn" id="button_check" (click)="nextFilament(); filamentChecked = true;"
+            [disabled]="filamentChecked"
             *ngIf="stepsList[currStep]?.instructions_filament[0].instructions_filament_checked ===false"><i
               class="{{buttonVal}}"></i></button>
-          </div>
+        </div>
       </div>
     </div>
     <div class="d-flex justify-content-center flex-nowrap" *ngFor="let instructions of stepsFilaments">
-     
-      <div class="card" style="width: 38rem;" >
+
+      <div class="card" style="width: 38rem;">
 
         <div class="card-body">
           <p class="card-text">{{instructions.text}} </p>
         </div>
 
         <div class="card-button" id="button_div">
-          
-              <button class="btn" id="button_check" (click)="nextFilament(); instructions.checked = true; instructions.button='fa-solid fa-check';" [disabled]="instructions.checked">
-                <i class="{{instructions.button}}"></i></button>
-                
+
+          <button class="btn" id="button_check"
+            (click)="nextFilament(); instructions.checked = true; instructions.button='fa-solid fa-check';"
+            [disabled]="instructions.checked">
+            <i class="{{instructions.button}}"></i></button>
+
         </div>
       </div>
     </div>
-  <div class="d-flex justify-content-center flex-nowrap" id="video_filament" >
-    <iframe width="600" height="315"
-    *ngIf="video"
-    src="https://www.youtube.com/embed/QwtfK-M_cpI">
-  </iframe>
-  </div>
-    
-   
+    <div class="d-flex justify-content-center flex-nowrap" id="video_filament">
+      <iframe width="600" height="315" *ngIf="video" src="https://www.youtube.com/embed/b2eiHFkSb0E">
+      </iframe>
+    </div>
+
+
+    <!--    END -  Instructions with steps and checked button   -->
+
+    <!--     Instructions with steps and checked button - BETTLEVELING EDITION   -->
+    <div class="d-flex justify-content-center flex-nowrap" *ngIf="stepsList[currStep]?.instructions_bed != null">
+      <div class="card" style="width: 38rem;">
+
+        <div class="card-body">
+          <h4>{{stepsList[currStep]?.instructions_bed[0].instructions_bed_name}}</h4>
+          <p class="card-text">{{stepsList[currStep]?.instructions_bed[0].instructions_bed_text}} </p>
+        </div>
+
+        <div class="card-button" id="button_div">
+          <button class="btn" id="button_check" (click)="nextBed(); bedChecked = true;" [disabled]="bedChecked"
+            *ngIf="stepsList[currStep]?.instructions_bed[0].instructions_bed_checked ===false"><i
+              class="{{buttonVal}}"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center flex-nowrap" *ngFor="let instructions of stepsBed">
+
+      <div class="card" style="width: 38rem;">
+
+        <div class="card-body">
+          <h4>{{instructions.name}}</h4>
+          <p class="card-text">{{instructions.text}} </p>
+        </div>
+
+        <div class="card-button" id="button_div">
+
+          <button class="btn" id="button_check"
+            (click)="nextBed(); instructions.checked = true; instructions.button='fa-solid fa-check';"
+            [disabled]="instructions.checked">
+            <i class="{{instructions.button}}"></i></button>
+          <iframe width="600" height="315" *ngIf="instructions.video" src="https://www.youtube.com/embed/_EfWVUJjBdA">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+
+
     <!--    END -  Instructions with steps and checked button   -->
 
 

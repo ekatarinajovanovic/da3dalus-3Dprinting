@@ -136,7 +136,7 @@
         },
         {
             "instruction_id": 4,
-            "instruction_name": "Neues Filament auffühlen",
+            "instruction_name": "Neues Filament nachfüllen",
             "instruction_text": "",
             "instructions_filament": [
                 {
@@ -162,8 +162,59 @@
         },
         {
             "instruction_id": 5,
-            "instruction_name": "Bett Levelling",
-            "instruction_text": ""
+            "instruction_name": "Bettleveling",
+            "instruction_text": "",
+            "instructions_bed": [
+                {
+                    "instructions_bed_id": 0,
+                    "instructions_bed_checked": false,
+                    "instructions_bed_name" : "Die Nivellierknöpfe lösen",
+                    "instructions_bed_text": "Nivellierknöpfe leicht lösen, so dass die Bett etwas über dem Z-Ursprung steht. Dies gibt Ihnen einen Ausgangspunkt, um Ihren Z-Offset sowie Ihr Level festzulegen."
+                    
+                },
+                {
+                    "instructions_bed_id": 1,
+                    "instructions_bed_checked": false,
+                    "instructions_bed_name" : "Den 3D-Drucker an seine Home-Position senden",
+                    "instructions_bed_text": "Wählen Sie die Option Auto-Home auf dem Display des 3D-Druckers. Sobald es seine Ausgangsposition erreicht hat, wählen Sie die Option, um die Schrittmotoren zu deaktivieren"
+                    
+                },
+                {
+                    "instructions_bed_id": 2,
+                    "instructions_bed_checked": false,
+                    "instructions_bed_name" : "Die Füllstandsregler an die Düse anpassen",
+                    "instructions_bed_text": "Nivellierknöpfe leicht lösen, so dass die Bett etwas über dem Z-Ursprung steht. Dies gibt Ihnen einen Ausgangspunkt, um Ihren Z-Offset sowie Ihr Level festzulegen."
+                    
+                },
+                {
+                    "instructions_bed_id": 4,
+                    "instructions_bed_checked": false,
+                    "instructions_bed_name" : "Die Nivellierknopf an die Düse anpassen",
+                    "instructions_bed_text": "Sobald der 3D-Drucker seine Ausgangsposition erreicht hat, bewegen Sie die Düse manuell über die Oberseite des nächstes Nivellierknopf und stellen Sie den Nivellierknopf ein, bis sich die Düse leicht über der Bauplatte befindet. Um eine genauere Bettebene zu erreichen, können Sie eine Fühleranzeige von .05-.10mm oder ein Blatt Papier zwischen Düse und Bett verwenden. Wiederholen Sie diesen Schritt für jeden Nivellierknopf"
+                    
+                },
+                {
+                    "instructions_bed_id": 5,
+                    "instructions_bed_checked": false,
+                    "instructions_bed_name" : "Nivellierknöpfe auf Düse umstellen.",
+                    "instructions_bed_text": "Sobald Sie alle Nivellierknöpfe eingestellt haben, sollten Sie um die Platte zurückgehen und alle Knöpfe erneut anpassen, um sicherzustellen, dass alle Füllstandspunkte noch den richtigen Abstand von der Düse haben. Sie werden normalerweise sehen, dass das Einstellen der Knöpfe auf der hinteren Ebene einen Effekt auf die vordere Ebene hatte und alle Knöpfe eine kleine Sekunde Einstellung benötigen."
+                    
+                },
+                {
+                    "instructions_bed_id": 6,
+                    "instructions_bed_checked": false,
+                    "instructions_bed_name" : "Bettleveling Test drucken",
+                    "instructions_bed_video": true,
+                    "instructions_bed_text": "Das Drucken eines Testdrucks auf Betthöhe ist der beste Weg, um sicherzustellen, dass Ihr Bettnivellierungsprojekt erfolgreich war. Ein Bettniveau-Testdruck druckt eine dünne Linie über die gesamte Bauplatte des 3D-Druckers, um sicherzustellen, dass Sie an jeder Ecke Ihrer Bauplatte eine ordnungsgemäße Betthaftung erhalten. Schauen dir dich dieses Video an: "
+                    
+                }
+            ]
+            
+        }
+    ],
+
+    "test":[
+        {
             
         }
     ]

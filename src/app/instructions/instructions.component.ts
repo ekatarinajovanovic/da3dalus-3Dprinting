@@ -3,6 +3,7 @@ import { InstructionsService } from '../service/instructions.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Filaments } from 'src/models/StepsFilament';
+import { Bed } from '../../models/StepsBed';
 
 
 @Component({
@@ -14,10 +15,13 @@ export class InstructionsComponent implements OnInit {
   public stepsList: any = [];
   public buttonVal: string = "fa-solid fa-x";
   public stepsFilaments: Filaments[] = [];
+  public bedVideo: boolean = false;
+  public currentStepBed: number = 0;
+  public stepsBed: Bed[] = [];
   public video: boolean = false;
   public currentStepFil: number = 0;
-  public filamentText: string = "";
   public filamentChecked: boolean = false;
+  public bedChecked: boolean = false;
   public currentStep: number = 0;
   public currStep: number = 0;
   public list_size: number = 0;
@@ -58,7 +62,7 @@ export class InstructionsComponent implements OnInit {
     this.stepsFilaments.length = 0;
     this.currentStepFil = 0;
     this.buttonVal = "fa-solid fa-x";
-    this.video= false;
+    this.video = false;
     this.filamentChecked = false;
     this.router.navigate(
       ['/instructions', this.currStep]
@@ -71,7 +75,7 @@ export class InstructionsComponent implements OnInit {
     this.choosen = 0;
     this.currentquestion = 0;
     this.filamentChecked = false;
-    this.video= false;
+    this.video = false;
     this.router.navigate(
       ['/instructions', this.currStep]
 
@@ -79,6 +83,9 @@ export class InstructionsComponent implements OnInit {
     this.stepsFilaments.length = 0;
     this.currentStepFil = 0;
     this.buttonVal = "fa-solid fa-x";
+    this.currentStepBed=0;
+    this.stepsBed.length=0;
+    this.bedChecked=false;
 
   }
 
@@ -117,13 +124,13 @@ export class InstructionsComponent implements OnInit {
   nextFilament() {
     this.currentStepFil++;
     if (this.currentStepFil < this.stepsList[this.currStep].instructions_filament.length) {
-      this.filamentText = this.stepsList[this.currStep].instructions_filament[this.currentStepFil].instructions_filament_text;
+     
 
       this.stepsList[this.currStep].instructions_filament[this.currentStepFil].instructions_filament_checked = true;
       this.buttonVal = "fa-solid fa-check";
       this.stepsFilaments.push({
         checked: false,
-        text: this.filamentText,
+        text: this.stepsList[this.currStep].instructions_filament[this.currentStepFil].instructions_filament_text,
         button: "fa-solid fa-x",
 
 
@@ -131,11 +138,40 @@ export class InstructionsComponent implements OnInit {
       })
 
     }
-    else if (this.currStep==3) {
-      this.video=true;
+    else if (this.currStep == 3) {
+      this.video = true;
 
     }
-    
+
+
+
+  }
+  nextBed() {
+    this.currentStepBed++;
+    if (this.currentStepBed < this.stepsList[this.currStep].instructions_bed.length) {
+
+      if (this.stepsList[this.currStep].instructions_bed[this.currentStepBed].instructions_bed_video == true) {
+        this.bedVideo = true;
+      }
+      else {
+        this.bedVideo = false;
+      }
+      this.stepsList[this.currStep].instructions_bed[this.currentStepBed].instructions_bed_checked = true;
+      this.buttonVal = "fa-solid fa-check";
+      this.stepsBed.push({
+        checked: false,
+        text: this.stepsList[this.currStep].instructions_bed[this.currentStepBed].instructions_bed_text,
+        name: this.stepsList[this.currStep].instructions_bed[this.currentStepBed].instructions_bed_name,
+        video: this.bedVideo,
+        button: "fa-solid fa-x",
+
+
+
+      })
+
+    }
+
+
 
 
   }
