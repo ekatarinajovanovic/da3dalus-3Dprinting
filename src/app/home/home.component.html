@@ -3,12 +3,22 @@
     
         
     <section class="jumbotron">
-        <video id="video-background" type="audio/ogg" preload muted autoplay loop>
+        <video id="video-background" type="audio/ogg" preload [muted]="true" autoplay loop>
             <source src="assets/video/video.mp4"  type="video/mp4">
             </video>
-            
+       
         </section>
-        <a [routerLink]="['/instructions', 0]" class="btn btn-info" role="button">Start den Einstellfahrplan</a>
+
+        
+
+        <div class="stepscontainer">
+<h3>Einstellfahrplan</h3>
+            <ul>
+                <li  *ngFor="let steps of listSteps"> <a [routerLink]="['/instructions', steps.instruction_id - 1]" >{{steps.instruction_name}}</a></li>
+            </ul>
+            <button [routerLink]="['/instructions', 0]" type="button" class="btn btn-dark">Start den Einstellfahrplan</button>
+ 
+        </div>
        
 
         

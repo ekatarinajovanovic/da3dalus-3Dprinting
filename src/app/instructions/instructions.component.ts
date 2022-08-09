@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Filaments } from 'src/models/StepsFilament';
 import { Bed } from '../../models/StepsBed';
+import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { EstepsCalculatorComponent } from '../esteps-calculator/esteps-calculator.component';
 
 
 @Component({
@@ -11,17 +13,20 @@ import { Bed } from '../../models/StepsBed';
   templateUrl: './instructions.component.html',
   styleUrls: ['./instructions.component.css']
 })
+
 export class InstructionsComponent implements OnInit {
   public stepsList: any = [];
+  public stepsExtruder:any=[];
   public buttonVal: string = "fa-solid fa-x";
   public stepsFilaments: Filaments[] = [];
-  public bedVideo: boolean = false;
-  public currentStepBed: number = 0;
-  public stepsBed: Bed[] = [];
+  
+  
+  public bedList: any=[];
+  
   public video: boolean = false;
   public currentStepFil: number = 0;
   public filamentChecked: boolean = false;
-  public bedChecked: boolean = false;
+ 
   public currentStep: number = 0;
   public currStep: number = 0;
   public list_size: number = 0;
@@ -34,7 +39,7 @@ export class InstructionsComponent implements OnInit {
 
 
 
-  constructor(private InstructionsService: InstructionsService, private router: Router, private rout: ActivatedRoute) { }
+  constructor(private InstructionsService: InstructionsService, private router: Router, private rout: ActivatedRoute, private dialogRef:MatDialogModule) { }
 
 
   ngOnInit(): void {
@@ -46,6 +51,7 @@ export class InstructionsComponent implements OnInit {
 
     this.getAllSteps();
 
+this.getAllExtruder();
 
 
 
@@ -57,6 +63,15 @@ export class InstructionsComponent implements OnInit {
 
   }
 
+
+
+
+  
+  getAllExtruder(){
+    this.InstructionsService.getExtruderJson().subscribe(res => {
+      this.stepsExtruder = res.extruder;
+    });
+  }
   nextInstruction() {
     this.currStep++;
     this.stepsFilaments.length = 0;
@@ -83,9 +98,9 @@ export class InstructionsComponent implements OnInit {
     this.stepsFilaments.length = 0;
     this.currentStepFil = 0;
     this.buttonVal = "fa-solid fa-x";
-    this.currentStepBed=0;
-    this.stepsBed.length=0;
-    this.bedChecked=false;
+    
+   
+   
 
   }
 
@@ -146,35 +161,13 @@ export class InstructionsComponent implements OnInit {
 
 
   }
-  nextBed() {
-    this.currentStepBed++;
-    if (this.currentStepBed < this.stepsList[this.currStep].instructions_bed.length) {
+  
+openCalculator(){
+  this.router.navigate(
+    ['/e-steps-calculator']
 
-      if (this.stepsList[this.currStep].instructions_bed[this.currentStepBed].instructions_bed_video == true) {
-        this.bedVideo = true;
-      }
-      else {
-        this.bedVideo = false;
-      }
-      this.stepsList[this.currStep].instructions_bed[this.currentStepBed].instructions_bed_checked = true;
-      this.buttonVal = "fa-solid fa-check";
-      this.stepsBed.push({
-        checked: false,
-        text: this.stepsList[this.currStep].instructions_bed[this.currentStepBed].instructions_bed_text,
-        name: this.stepsList[this.currStep].instructions_bed[this.currentStepBed].instructions_bed_name,
-        video: this.bedVideo,
-        button: "fa-solid fa-x",
-
-
-
-      })
-
-    }
-
-
-
-
-  }
-
+  )
+}
+ 
 }
 

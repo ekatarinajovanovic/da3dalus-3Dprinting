@@ -11,4 +11,10 @@ export class InstructionsService {
   getStepsJson() {
     return this.http.get<any>("assets/steps.json");
   }
+  getBed_LevelingJson(){
+    return this.http.get<any>("assets/bed_leveling.json");
+  }
+  getExtruderJson(){
+    return this.http.get<any>("assets/extruder.json");
+  }
 }

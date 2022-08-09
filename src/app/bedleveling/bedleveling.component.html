@@ -1,0 +1,135 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="d-flex justify-content-between p-3">
+            <h3> <img src="/assets/img/icons8-instructions-64.png" width="30" height="30"
+                    class="d-inline-block align-top" alt="logo">
+                Einstellfahrplan -
+                <small class="text-muted">Bettleveling- {{bedlevelingType}}</small>
+
+            </h3>
+
+        </div>
+        <div *ngIf="bedlevelingType==='manuel'">
+            <div class="d-flex justify-content-center flex-nowrap">
+                <div class="card" style="width: 38rem; height: 20rem;">
+
+                    <div class="card-body">
+
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Ze36SX1xzOE">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center flex-nowrap" *ngIf="bedlevelingType==='manuel'">
+                <div class="card" style="width: 38rem;">
+
+                    <div class="card-body">
+
+                        <h4>{{bedList[0].instructions_bed_name}}</h4>
+                        <p class="card-text">{{bedList[0].instructions_bed_text}} </p>
+                    </div>
+
+                    <div class="card-button" id="button_div">
+                        <button class="btn" id="button_check" (click)="nextBed(); bedChecked = true;"
+                            [disabled]="bedChecked" *ngIf="bedList[0].instructions_bed_checked ===false"><i
+                                class="{{buttonVal}}"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center flex-nowrap" *ngFor="let instructions of stepsBed">
+
+                <div class="card" style="width: 38rem;">
+
+                    <div class="card-body">
+                        <h4>{{instructions.name}}</h4>
+                        <p class="card-text">{{instructions.text}} </p>
+                    </div>
+
+                    <div class="card-button" id="button_div">
+
+                        <button class="btn" id="button_check"
+                            (click)="nextBed(); instructions.checked = true; instructions.button='fa-solid fa-check';"
+                            [disabled]="instructions.checked">
+                            <i class="{{instructions.button}}"></i></button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="bedlevelingType==='auto'">
+            <div class="d-flex justify-content-center flex-nowrap">
+                <div class="card" style="width: 38rem; height: 20rem;">
+
+                    <div class="card-body">
+
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/9VkIgeiPNQ4">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center flex-nowrap" *ngIf="bedlevelingType==='auto'">
+                <div class="card" style="width: 38rem;">
+
+                    <div class="card-body">
+
+
+                        <h5>{{bedList[0].instructions_bed_id + 1}}. {{bedList[0].instructions_bed_text}} </h5>
+                    </div>
+
+                    <div class="card-button" id="button_div">
+                        <button class="btn" id="button_check" (click)="nextBed(); bedChecked = true;"
+                            [disabled]="bedChecked" *ngIf="bedList[0].instructions_bed_checked ===false"><i
+                                class="{{buttonVal}}"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center flex-nowrap" *ngFor="let instructions of stepsBed">
+
+                <div class="card" style="width: 38rem;">
+
+                    <div class="card-body">
+
+                        <h5>{{instructions.id+1}}. {{instructions.text}} </h5>
+                    </div>
+
+                    <div class="card-button" id="button_div">
+
+                        <button class="btn" id="button_check"
+                            (click)="nextBed(); instructions.checked = true; instructions.button='fa-solid fa-check';"
+                            [disabled]="instructions.checked">
+                            <i class="{{instructions.button}}"></i></button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center flex-nowrap" *ngIf="end">
+                <div class="card" style="width: 38rem;">
+
+                    <div class="card-body">
+
+                        <p>Nachdem Sie diese Schritte ausgeführt haben, ist der automatische Befehl Bettleveling Teil
+                            der Start-G-Code-Routine von Cura, die vor jedem Druck an den Drucker gesendet wird, und
+                            weist den Drucker an, die automatische Bettnivellierung auszuführen, bevor er mit dem
+                            Druckvorgang fortfährt.
+                        </p>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!--     Routing     -->
+        <ng-container>
+            <div class="d-flex justify-content-between py-3">
+
+                <button class="btn" [routerLink]="['/instructions', 5]"><i
+                        class="fa-solid fa-arrow-left-long fa-2x"></i></button>
+
+
+
+            </div>
+        </ng-container>
+
+    </div>
+</div>

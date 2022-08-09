@@ -1,0 +1,68 @@
+{
+    "extruder":[
+        {
+            "extruder_id": 1,
+            "extruder_name": "Temperatur einstellen",
+            "extruder_text": "Für eine erfolgreiche Extruderkalibrierung muss das Hotend entsprechend dem verwendeten Filament auf die richtige Temperatur eingestellt werden. Wenn Sie die Kalibrierung mit PLA-Filament durchführen, stellen Sie eine Temperatur von 195 ° C ein. Wenn Sie PETG verwenden, stellen Sie eine Temperatur von 225 ° C ein."
+
+
+        },
+        {
+            "extruder_id": 2,
+            "extruder_name": "Drucker mit Pronterface verbinden",
+            "extruder_img": "/assets/img/ex1.png",
+            "extruder_img_height" : "200",
+            "extruder_img_width" : "400",
+            "extruder_text": "Der nächste Schritt bei der Extruderkalibrierung besteht darin, den Drucker über ein USB-Kabel an den Computer anzuschließen. Öffnen Sie Pronterface und wählen Sie den richtigen COM-Port und die richtige Baudrate. In meinem Fall habe ich COM4 und 250000 verwendet. Wenn beim Anschließen an den Drucker Probleme auftreten, stellen Sie sicher, dass Sie alle Datenschnitte geschlossen haben. Es ist bekannt, dass Cura die vom Drucker verwendeten COM-Anschlüsse stört."
+
+
+        },
+        {
+            "extruder_id": 3,
+            "extruder_name": "Abrufen aktueller Extruderschritte",
+            "extruder_img": "/assets/img/ex2.png",
+            "extruder_img_height" : "200",
+            "extruder_img_width" : "400",
+            "extruder_text": "Geben Sie den Befehl M503 ein und drücken Sie die Eingabetaste. Achte auf die Linie, die mit M92 beginnt. Fügen Sie den E-Wert im Rechner hinzu, und fahren Sie dann mit dem nächsten Schritt fort.."
+
+
+        },
+        {
+            "extruder_id": 4,
+            "extruder_name": "200 mm Filament messen",
+            "extruder_img": "/assets/img/ex3.jpg",
+            "extruder_img_height" : "400",
+            "extruder_img_width" : "300",
+            "extruder_text": "Begradigen Sie das Filament vorsichtig und messen Sie 200 mm von einer festen Position aus. Ich habe mich entschieden, vom Ende des PTFE-Rohrs, das in den Extruder geht, zu messen. Markieren Sie das Filament, und fahren Sie dann mit dem nächsten Schritt fort."
+
+
+        },
+        {
+            "extruder_id": 5,
+            "extruder_name": "100 mm Filament extrudieren",
+            "extruder_img": "/assets/img/ex4.jpg",
+            "extruder_img_height" : "250",
+            "extruder_img_width" : "400",
+            "extruder_text": "Führen Sie in Pronterface den Befehl M83 für den relativen Modus aus. Führen Sie dann den Befehl G1 F100 E100 aus. Der Extruder beginnt mit dem Drücken des Filaments und der gesamte Vorgang dauert etwa eine Minute."
+
+
+        },
+        {
+            "extruder_id": 6,
+            "extruder_name": "Messen Sie das verbleibende Filament",
+            "extruder_img": "/assets/img/ex5.jpg",
+            "extruder_img_height" : "280",
+            "extruder_img_width" : "400",
+            "extruder_text": "Führen Sie in Pronterface den Befehl M83 für den relativen Modus aus. Führen Sie dann den Befehl G1 F100 E180 aus. Der Extruder beginnt mit dem Drücken des Filaments und der gesamte Vorgang dauert etwa eine Minute."
+
+
+        },
+        {
+            "extruder_id": 7,
+            "extruder_name": "Speichern des neuen Extruderwerts",
+            "extruder_text": "In Pronterface, run the M92 Exxx.xx command, and replace the xxx.xx with the value from the calculator, then save everything with the M500 command.  It is recommended to repeat the process in order to make sure the new extruder value is correct."
+
+
+        }
+    ]
+}

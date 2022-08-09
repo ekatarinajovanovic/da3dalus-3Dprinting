@@ -1,5 +1,10 @@
 .img_instruction{
-    margin-left: 3%;
+   margin-left: 3%;
+    text-align: left;
+    margin-bottom: 2%;
+}
+.text{
+  text-align: left;
 }
 
 ul {
@@ -8,6 +13,7 @@ ul {
   }
   #questions{
     margin-bottom: 5%;
+    text-align: left;
   }
   #button_div{
     text-align: right;
@@ -16,7 +22,29 @@ ul {
  #button_check{
   border: none;
   outline: none;
+  background: none;
  }
+
  #video_filament{
   margin-top: 2%;
  }
+ #img_div{
+  text-align: center;
+
+}
+.card{
+  text-align: center;
+}
+
+.btn{
+  border: none;
+  outline: none;
+}
+#smileybutton{
+  outline: none;
+  border: none;
+  background-color: transparent;
+  padding: 4%;
+  
+  
+}

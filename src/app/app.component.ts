@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'da3dalus-3Dprinting';
+  
+  
 }

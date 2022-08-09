@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
   <a class="navbar-brand" href="#">
-    <img src="assets/img/logo.png" width="40" height="40" class="d-inline-block align-top" alt="logo">
-    3D-Drucker Einstellfahrplan
+    <img src="assets/img/logo1.png" width="40" height="40" class="d-inline-block align-top" alt="logo">
+    3D-Drucker
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,19 +10,9 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#">Einstellfahrplan</a>
+        <a class="nav-link" [routerLink]="['/instructions', 0]">Einstellfahrplan</a>
       </li>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
-          aria-expanded="false">
-          Dropdown
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <li><button class="dropdown-item" type="button">Action</button></li>
-          <li><button class="dropdown-item" type="button">Another action</button></li>
-          <li><button class="dropdown-item" type="button">Something else here</button></li>
-        </ul>
-      </div>
+    
     </ul>
   </div>
 </nav>
