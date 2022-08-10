@@ -26,13 +26,13 @@ public stepsBed: Bed [] = [];
     this.getAllBed_Leveling();
   }
   getAllBed_Leveling(){
-    if(this.bedlevelingType === 'manuel')
+    if(this.bedlevelingType === 'Manuell')
     {
       this.InstructionsService.getBed_LevelingJson().subscribe(res => {
-        this.bedList = res.bed_leveling[0].manuel;
+        this.bedList = res.bed_leveling[0].manuell;
       });
     }
-    else if(this.bedlevelingType === 'auto'){
+    else if(this.bedlevelingType === 'Auto'){
       this.InstructionsService.getBed_LevelingJson().subscribe(res => {
         this.bedList = res.bed_leveling[1].auto;
       });

@@ -1,8 +1,8 @@
 {
     "bed_leveling": [
         {
-            "type": "manuel",
-            "manuel": [
+            "type": "Manuell",
+            "manuell": [
                 {
                     "instructions_bed_id": 0,
                     "instructions_bed_checked": false,

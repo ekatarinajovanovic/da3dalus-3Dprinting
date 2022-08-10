@@ -153,10 +153,8 @@
         },
         {
             "instruction_id": 5,
-            "instruction_name": "Extruder kalibrieren",
-            "extruder_steps": [
-                
-            ]
+            "instruction_name": "Extruder kalibrieren"
+            
         },
         {
             "instruction_id": 6,

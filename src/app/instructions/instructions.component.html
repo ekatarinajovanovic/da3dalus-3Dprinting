@@ -118,70 +118,76 @@
         </div>
       </div>
     </div>
-  
 
-  <!--    END -  Instructions with steps and checked button   -->
 
-  <!--     Instructions with steps and checked button - BETTLEVELING EDITION   -->
-  <div class="d-flex justify-content-center flex-nowrap" *ngIf="stepsList[currStep]?.instruction_name === 'Bettleveling'">
-    <div class="card" style="width: 58rem;">
-      <div class="card-body">
-        <h5 class="card-title">Hast du Auto-Leveling Option?</h5>
-        <button id="smileybutton" [routerLink]="['/bedleveling', 'auto']" ><i class="fa-solid fa-face-laugh-beam"></i> JA!</button>
-        <button id="smileybutton" [routerLink]="['/bedleveling', 'manuel']"><i class="fa-solid fa-face-frown"></i> NEIN!</button>
+    <!--    END -  Instructions with steps and checked button   -->
+
+    <!--     Instructions with steps and checked button - BETTLEVELING EDITION   -->
+    <div class="d-flex justify-content-center flex-nowrap"
+      *ngIf="stepsList[currStep]?.instruction_name === 'Bettleveling'">
+      <div class="card" style="width: 58rem;">
+        <div class="card-body">
+          <h5 class="card-title">Hast du Auto-Leveling Option?</h5>
+          <button id="smileybutton" [routerLink]="['/bedleveling', 'Auto']"><i class="fa-solid fa-face-laugh-beam"></i>
+            JA!</button>
+          <button id="smileybutton" [routerLink]="['/bedleveling', 'Manuell']"><i class="fa-solid fa-face-frown"></i>
+            NEIN!</button>
+
+        </div>
       </div>
     </div>
+
+
+
+
+
+    <!--    END -  Instructions with steps and checked button   -->
+    <!--     Instructions with text and img -EXTRUDER     -->
+    <div class="d-flex flex-column" *ngIf="stepsList[currStep]?.instruction_name === 'Extruder kalibrieren'">
+      <div class="img_instruction" *ngFor="let extruder of stepsExtruder">
+        <h2>{{extruder.extruder_id}}. {{extruder.extruder_name}}</h2>
+        <p>{{extruder.extruder_text}}</p>
+        <div id="img_div">
+          <img src="{{extruder.extruder_img}}" alt="" width="{{extruder.extruder_img_width}}"
+            height="{{extruder.extruder_img_height}}">
+        </div>
+      </div>
+      <button type="button" class="btn btn-dark" style="width: 30%; margin-left: 35%;" (click)="openCalculator()">
+        <i class="fa-solid fa-calculator"></i> E-Steps Rechner
+      </button>
+
+
+
+
+    </div>
+
+    <!--  END - Instructions with text and img -EXTRUDER        -->
+
+    <!--     Routing     -->
+    <ng-container>
+      <div class="d-flex justify-content-between py-3">
+        <div class="previousinst">
+          <button class="btn" [hidden]="currStep == 0" aria-hidden="true" (click)="previousInstruction()"><i
+              class="fa-solid fa-arrow-left-long fa-2x"></i></button>
+
+          <button class="btn" aria-hidden="true" [hidden]="currStep > 0" [routerLink]="['/home']"><i
+              class="fa-solid fa-house-circle-xmark fa-2x"></i></button>
+        </div>
+        <div class="probleminst">
+          <button class="btn" aria-hidden="true" *ngIf="stepsList[currStep]?.problems?.length > 0"
+            (click)="listProblems()"><i class="fa-solid fa-file-circle-question fa-2x"></i></button>
+        </div>
+        <div class="nextinst">
+          <button class="btn" aria-hidden="true" (click)="nextInstruction()"
+            [hidden]="currStep == stepsList.length - 1"><i class="fa-solid fa-arrow-right-long fa-2x"></i></button>
+          <button class="btn" aria-hidden="true" [hidden]="currStep < stepsList.length - 1" [routerLink]="['/home']"><i
+              class="fa-solid fa-house-circle-check fa-2x"></i></button>
+        </div>
+      </div>
+
+
+
+    </ng-container>
+
   </div>
-
-
-  
-
-
-  <!--    END -  Instructions with steps and checked button   -->
-  <!--     Instructions with text and img -EXTRUDER     -->
-  <div  class="d-flex flex-column" *ngIf="stepsList[currStep]?.instruction_name === 'Extruder kalibrieren'">
-    <div class="img_instruction"  *ngFor="let extruder of stepsExtruder">
-      <h2>{{extruder.extruder_id}}. {{extruder.extruder_name}}</h2>
-      <p>{{extruder.extruder_text}}</p>
-      <div id="img_div">
-        <img src="{{extruder.extruder_img}}" alt="" width="{{extruder.extruder_img_width}}"
-          height="{{extruder.extruder_img_height}}">
-      </div>
-    </div>
-    <button type="button" class="btn btn-dark" style="width: 30%; margin-left: 35%;" (click)="openCalculator()" >
-      <i class="fa-solid fa-calculator"></i> E-Steps Rechner
-    </button>
-    
-    
-
-
-  </div>
-
-  <!--  END - Instructions with text and img -EXTRUDER        -->
-
-  <!--     Routing     -->
-  <ng-container>
-    <div class="d-flex justify-content-between py-3">
-      <div class="previousinst">
-        <button class="btn" [hidden]="currStep == 0" aria-hidden="true" (click)="previousInstruction()"><i
-            class="fa-solid fa-arrow-left-long fa-2x"></i></button>
-
-          <button class="btn" aria-hidden="true" [hidden]="currStep > 0" [routerLink]="['/home']"><i class="fa-solid fa-house-circle-xmark fa-2x"></i></button>
-      </div>
-      <div class="probleminst">
-        <button class="btn" aria-hidden="true" *ngIf="stepsList[currStep]?.problems?.length > 0"
-          (click)="listProblems()"><i class="fa-solid fa-file-circle-question fa-2x"></i></button>
-      </div>
-      <div class="nextinst">
-        <button class="btn" aria-hidden="true" (click)="nextInstruction()"
-          [hidden]="currStep == stepsList.length - 1"><i class="fa-solid fa-arrow-right-long fa-2x"></i></button>
-          <button class="btn" aria-hidden="true" [hidden]="currStep < stepsList.length - 1" [routerLink]="['/home']"><i class="fa-solid fa-house-circle-check fa-2x"></i></button>
-      </div>
-    </div>
-
-
-
-  </ng-container>
-
-</div>
 </div>
