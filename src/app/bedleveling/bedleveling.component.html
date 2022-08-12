@@ -15,7 +15,7 @@
 
                     <div class="card-body">
 
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Ze36SX1xzOE">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/_EfWVUJjBdA">
                         </iframe>
                     </div>
                 </div>
@@ -53,6 +53,19 @@
                             <i class="{{instructions.button}}"></i></button>
 
                     </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center flex-nowrap" *ngIf="end">
+                <div class="card" style="width: 38rem;">
+
+                    <div class="card-body">
+                        <p>Nachdem Sie den Bett eingestellt haben, Sie können Test Druck starten, zu überürüfen ob Sie
+                            den Bett richtig eingestellt haben.</p>
+                        <button class="btn"><img src="/assets/img/test-white.png" alt="" width="5%" height="5%"> Test Druck starten</button>
+
+                    </div>
+
+
                 </div>
             </div>
         </div>
@@ -106,12 +119,9 @@
                 <div class="card" style="width: 38rem;">
 
                     <div class="card-body">
-
-                        <p>Nachdem Sie diese Schritte ausgeführt haben, ist der automatische Befehl Bettleveling Teil
-                            der Start-G-Code-Routine von Cura, die vor jedem Druck an den Drucker gesendet wird, und
-                            weist den Drucker an, die automatische Bettnivellierung auszuführen, bevor er mit dem
-                            Druckvorgang fortfährt.
-                        </p>
+                        <p>Nachdem Sie den Bett eingestellt haben, Sie können Test Druck starten, zu überürüfen ob Sie
+                            den Bett richtig eingestellt haben.</p>
+                        <button class="btn"><img src="/assets/img/test-white.png" alt="" width="5%" height="5%"> Test Druck starten</button>
 
                     </div>
 
@@ -123,7 +133,7 @@
         <ng-container>
             <div class="d-flex justify-content-between py-3">
 
-                <button class="btn" [routerLink]="['/instructions', 5]"><i
+                <button class="btn" id="back" [routerLink]="['/instructions', 6]"><i
                         class="fa-solid fa-arrow-left-long fa-2x"></i></button>
 
 

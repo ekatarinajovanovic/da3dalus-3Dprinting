@@ -31,6 +31,7 @@ public stepsBed: Bed [] = [];
       this.InstructionsService.getBed_LevelingJson().subscribe(res => {
         this.bedList = res.bed_leveling[0].manuell;
       });
+      
     }
     else if(this.bedlevelingType === 'Auto'){
       this.InstructionsService.getBed_LevelingJson().subscribe(res => {

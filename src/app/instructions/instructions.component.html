@@ -18,8 +18,8 @@
 
     </div>
     <!--     Instructions with text and img     -->
-    <div class="d-flex justify-content-between py-3">
-      <div class="img_instruction" *ngIf="stepsList[currStep]?.instruction_img != null">
+    <div class="d-flex justify-content-between py-3" *ngIf="stepsList[currStep]?.instruction_img != null">
+      <div class="img_instruction" >
         <img src="{{stepsList[currStep]?.instruction_img}}" alt="" width="560" height="560">
       </div>
       <div class="text" *ngIf="stepsList[currStep]?.instruction_text != null">
@@ -29,7 +29,29 @@
       </div>
     </div>
     <!--  END - Instructions with text and img        -->
-
+    <!--  Instructions with tabel     -->
+    <div class="tabelle" *ngIf="stepsList[currStep]?.softwares != null">
+      <p [innerText]="stepsList[currStep]?.instruction_text"></p>
+    <table class="table"  >
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Name</th>
+          <th scope="col">Preis</th>
+          <th scope="col">Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let software of stepsList[currStep]?.softwares">
+          <th scope="row">{{software.software_id}}</th>
+          <td>{{software.software_name}}</td>
+          <td>{{software.software_price}}</td>
+          <td><a href="{{software.software_download}}">Download</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<!-- END- Instructions with tabel     -->
     <!--     Instructions with questions     -->
 
 
@@ -123,8 +145,11 @@
     <!--    END -  Instructions with steps and checked button   -->
 
     <!--     Instructions with steps and checked button - BETTLEVELING EDITION   -->
-    <div class="d-flex justify-content-center flex-nowrap"
-      *ngIf="stepsList[currStep]?.instruction_name === 'Bettleveling'">
+    <div *ngIf="stepsList[currStep]?.instruction_name === 'Bettleveling'">
+      <div class="d-flex justify-content-center flex-nowrap" id="text-left"> 
+      <p [innerText]="stepsList[currStep]?.instruction_text"></p>
+    </div>
+    <div class="d-flex justify-content-center flex-nowrap">
       <div class="card" style="width: 58rem;">
         <div class="card-body">
           <h5 class="card-title">Hast du Auto-Leveling Option?</h5>
@@ -136,6 +161,7 @@
         </div>
       </div>
     </div>
+    </div>
 
 
 
@@ -146,7 +172,7 @@
     <div class="d-flex flex-column" *ngIf="stepsList[currStep]?.instruction_name === 'Extruder kalibrieren'">
       <div class="img_instruction" *ngFor="let extruder of stepsExtruder">
         <h2>{{extruder.extruder_id}}. {{extruder.extruder_name}}</h2>
-        <p>{{extruder.extruder_text}}</p>
+        <p [innerText]="extruder.extruder_text"></p>
         <div id="img_div">
           <img src="{{extruder.extruder_img}}" alt="" width="{{extruder.extruder_img_width}}"
             height="{{extruder.extruder_img_height}}">
@@ -167,23 +193,24 @@
     <ng-container>
       <div class="d-flex justify-content-between py-3">
         <div class="previousinst">
-          <button class="btn" [hidden]="currStep == 0" aria-hidden="true" (click)="previousInstruction()"><i
+          <button class="btn" id="button_nav" [hidden]="currStep == 0" aria-hidden="true" (click)="previousInstruction()"><i
               class="fa-solid fa-arrow-left-long fa-2x"></i></button>
 
-          <button class="btn" aria-hidden="true" [hidden]="currStep > 0" [routerLink]="['/home']"><i
+          <button class="btn" id="button_nav" aria-hidden="true" [hidden]="currStep > 0" [routerLink]="['/home']"><i
               class="fa-solid fa-house-circle-xmark fa-2x"></i></button>
         </div>
         <div class="probleminst">
-          <button class="btn" aria-hidden="true" *ngIf="stepsList[currStep]?.problems?.length > 0"
+          <button class="btn" id="button_nav" aria-hidden="true" *ngIf="stepsList[currStep]?.problems?.length > 0"
             (click)="listProblems()"><i class="fa-solid fa-file-circle-question fa-2x"></i></button>
         </div>
         <div class="nextinst">
-          <button class="btn" aria-hidden="true" (click)="nextInstruction()"
+          <button class="btn" id="button_nav" aria-hidden="true" (click)="nextInstruction()"
             [hidden]="currStep == stepsList.length - 1"><i class="fa-solid fa-arrow-right-long fa-2x"></i></button>
-          <button class="btn" aria-hidden="true" [hidden]="currStep < stepsList.length - 1" [routerLink]="['/home']"><i
+          <button class="btn" id="button_nav" aria-hidden="true" [hidden]="currStep < stepsList.length - 1" [routerLink]="['/home']"><i
               class="fa-solid fa-house-circle-check fa-2x"></i></button>
         </div>
       </div>
+  
 
 
 

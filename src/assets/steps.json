@@ -8,9 +8,32 @@
         },
         {
             "instruction_id": 2,
+            "instruction_name": "Software tools",
+            "instruction_text": "Im Tabelle unten sind Software tools die du für diese Einstellfahrplan brauchst.",
+            "softwares":[
+                {
+                    "software_id": 1,
+                    "software_name": "Ultimaker Cura (Slicer)",
+                    "software_price": "Kostenlos",
+                    "software_download": "https://ultimaker.com/software/ultimaker-cura"
+
+                },
+                {
+                    
+                    "software_id": 2,
+                    "software_name": "Pronterface (3D printing host software)",
+                    "software_price": "Kostenlos",
+                    "software_download": "https://www.pronterface.com/#download"
+                }
+            ]
+            
+        },
+        {
+            "instruction_id": 3,
             "instruction_name": "Aufbaukontrolle",
             "questions": [
                 {
+                    
                     "question_id": 1,
                     "question_button": "Radio",
                     "question_name": "Hast du das Rechtwinkligkeit überprüft?",
@@ -49,7 +72,7 @@
                 {
                     "question_id": 3,
                     "question_button": "Radio",
-                    "question_name": "Hast du die Leichgängingen Achsen überprüft?",
+                    "question_name": "Hast du die Leichtgängingen Achsen und Rimmenspanung überprüft?",
                     "answers": [
                         {
                             "answer_id": 0,
@@ -61,31 +84,13 @@
                             "answer_id": 1,
                             "answer_value": "no",
                             "answer_text": "Nein, wie mache ich das?",
-                            "solution_text": "SOLUTION "
+                            "solution_text": "Die Zahnriemen sollen nicht zu fest oder zu locker sein. Besorgt euch ein Stimmgerät oder eine Smartphone App zum Stimmen von Saiteninstrumenten. "
                         }
                     ]
                 },
+              
                 {
-                    "question_id": 3,
-                    "question_button": "Radio",
-                    "question_name": "Hast du Rimmenspanung überprüft?",
-                    "answers": [
-                        {
-                            "answer_id": 0,
-                            "answer_value": "yes",
-                            "answer_text": "Ja",
-                            "next_question": 2
-                        },
-                        {
-                            "answer_id": 1,
-                            "answer_value": "no",
-                            "answer_text": "Nein, wie mache ich das?",
-                            "solution_text": "Nimm dir Riemenspannungsmessgerät  "
-                        }
-                    ]
-                },
-                {
-                    "question_id": 3,
+                    "question_id": 4,
                     "question_button": "Radio",
                     "question_name": "Hast du Hotend richtig aufgebaut?",
                     "answers": [
@@ -99,7 +104,7 @@
                             "answer_id": 1,
                             "answer_value": "no",
                             "answer_text": "Nein, wie mache ich das?",
-                            "solution_text": "Schau dir Video an! ",
+                            "solution_text": "Schau dir das Video an! ",
                             "solution_video": "https://www.youtube.com/embed/xz_aFuUqoSM"
                         }
                     ]
@@ -107,7 +112,7 @@
             ]
         },
         {
-            "instruction_id": 3,
+            "instruction_id": 4,
             "instruction_name": "Altes Filament entfernen",
             "instruction_text": "",
             "question": "",
@@ -130,7 +135,7 @@
             ]
         },
         {
-            "instruction_id": 4,
+            "instruction_id": 5,
             "instruction_name": "Neues Filament nachfüllen",
             "instruction_text": "",
             "instructions_filament": [
@@ -152,14 +157,14 @@
             ]
         },
         {
-            "instruction_id": 5,
+            "instruction_id": 6,
             "instruction_name": "Extruder kalibrieren"
             
         },
         {
-            "instruction_id": 6,
+            "instruction_id": 7,
             "instruction_name": "Bettleveling",
-            "instruction_text": "",
+            "instruction_text": "Bettleveling ist entscheidend, um qualitativ hochwertige Drucke zu erhalten. Wenn ein Bett nicht richtig 'nivelliert' ist, kann dies zu einer schlechten Betthaftung, 'Verformung' und subtilen Problemen während des gesamten Drucks führen. \n\n Wenn Ihr Drucker die automatische Bettnivellierung unterstützt, bedeutet dies normalerweise, dass er einen Typ- oder Näherungssensor oder -schalter in der Nähe der Spitze des Extruders enthält. Wenn Sie den Bettnivellierungsprozess starten, untersucht dieser Sensor mehrere Positionen auf der Bauplattform, um den Abstand zwischen der Düse und dem Bett an jedem Punkt zu berechnen. Aus diesen Daten wird dann die tatsächliche Ausrichtung Ihres Druckbettes in Bezug auf die Bewegung der Düse in den XY-Achsen berechnet.  ",
             "instructions_bed_video": true
         }
         

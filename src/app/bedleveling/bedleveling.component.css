@@ -1,13 +1,9 @@
 
-.btn{
+#back{
     border: none;
     outline: none;
   }
-  #button_check{
-    border: none;
-    outline: none;
-    background: none;
-   }
+
    #button_div{
     text-align: right;
 

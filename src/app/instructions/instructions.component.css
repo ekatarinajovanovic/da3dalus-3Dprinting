@@ -19,11 +19,15 @@ ul {
     text-align: right;
 
   }
- #button_check{
-  border: none;
-  outline: none;
-  background: none;
- }
+  .tabelle{
+    padding: 3%;
+    text-align: left;
+  }
+  #text-left{
+    padding: 3%;
+    text-align: left;
+  }
+
 
  #video_filament{
   margin-top: 2%;
@@ -36,10 +40,7 @@ ul {
   text-align: center;
 }
 
-.btn{
-  border: none;
-  outline: none;
-}
+
 #smileybutton{
   outline: none;
   border: none;
@@ -48,3 +49,8 @@ ul {
   
   
 }
+#button_nav{
+  border: none;
+ 
+  background: none;
+ }

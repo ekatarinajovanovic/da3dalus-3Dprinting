@@ -32,7 +32,7 @@ getAllSteps()
 back(){
   
   this.router.navigate(
-    ['/instructions', 4]
+    ['/instructions', 5]
 
   )
 }
