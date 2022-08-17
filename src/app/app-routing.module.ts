@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import {HeaderComponent} from './header/header.component';
 import { EstepsCalculatorComponent } from './esteps-calculator/esteps-calculator.component';
 import { BedlevelingComponent } from './bedleveling/bedleveling.component';
+import { FilamentComponent } from './filament/filament.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,9 @@ const routes: Routes = [
   {path: "home", component: HomeComponent},
   {path: "instructions/:id", component: InstructionsComponent},
   {path: "e-steps-calculator", component: EstepsCalculatorComponent},
-  {path: "bedleveling/:type", component:BedlevelingComponent}
+  {path: "bedleveling/:type", component:BedlevelingComponent},
+  {path: "filaments", component:FilamentComponent}
+
 
 //{path: "instructions", component: InstructionsComponent}
 

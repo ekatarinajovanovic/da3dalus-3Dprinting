@@ -166,6 +166,39 @@
             "instruction_name": "Bettleveling",
             "instruction_text": "Bettleveling ist entscheidend, um qualitativ hochwertige Drucke zu erhalten. Wenn ein Bett nicht richtig 'nivelliert' ist, kann dies zu einer schlechten Betthaftung, 'Verformung' und subtilen Problemen während des gesamten Drucks führen. \n\n Wenn Ihr Drucker die automatische Bettnivellierung unterstützt, bedeutet dies normalerweise, dass er einen Typ- oder Näherungssensor oder -schalter in der Nähe der Spitze des Extruders enthält. Wenn Sie den Bettnivellierungsprozess starten, untersucht dieser Sensor mehrere Positionen auf der Bauplattform, um den Abstand zwischen der Düse und dem Bett an jedem Punkt zu berechnen. Aus diesen Daten wird dann die tatsächliche Ausrichtung Ihres Druckbettes in Bezug auf die Bewegung der Düse in den XY-Achsen berechnet.  ",
             "instructions_bed_video": true
+        },
+        {
+            "instruction_id": 8,
+            "instruction_name": "Test Druck",
+            "instruction_text":"Jetzt wir werden unsere Bett level testen. Für diese Anwendung Sie brauchen Ultimaker Cura. Unten ist 'Donwload Test Druck' Knopf wo Sie .stl File für Test Druck herunterlanden können. Wenn Sie hilfe mit Ultimaker Cura brauchten, Sie können Anwendung auf diese Link anschauen ",
+            "instruction_download":"https://3dprinterly.com/how-to-use-cura-for-beginners-step-by-step-guide-more/",
+            "results":[
+                {
+                    "result_id":1,
+                    "result_img": "assets/img/result1.PNG",
+                    "result_text": "Filament sitz auf dem Bett, große Lücken zwischen der Extrusion",
+                    "result_solution":""
+                },
+                {
+                    "result_id":2,
+                    "result_img": "assets/img/result2.PNG",
+                    "result_text": "Abstand zwischen der Extrusion, kann immer noch Bett durch Infill sehen",
+                    "result_solution":""
+                },
+                {
+                    "result_id":3,
+                    "result_img": "assets/img/result3.PNG",
+                    "result_text": "Keine Lücken zwischen den Extrusionen, keine Grate aus überschüssigem Filament",
+                    "result_solution":""
+                },
+                {
+                    "result_id":4,
+                    "result_img": "assets/img/result4.PNG",
+                    "result_text": "Filament ist dünn und durchscheinend an einigen Stellen Grate von überschüssigem Filament",
+                    "result_solution":""
+                }
+            ]
+            
         }
         
     ]

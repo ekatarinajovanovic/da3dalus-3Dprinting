@@ -18,8 +18,9 @@
 
     </div>
     <!--     Instructions with text and img     -->
-    <div class="d-flex justify-content-between py-3" *ngIf="stepsList[currStep]?.instruction_img != null">
-      <div class="img_instruction" >
+    <div class="d-flex justify-content-between py-3"
+      *ngIf="stepsList[currStep]?.instruction_name === '3D-Drucker Teile'">
+      <div class="img_instruction">
         <img src="{{stepsList[currStep]?.instruction_img}}" alt="" width="560" height="560">
       </div>
       <div class="text" *ngIf="stepsList[currStep]?.instruction_text != null">
@@ -32,26 +33,26 @@
     <!--  Instructions with tabel     -->
     <div class="tabelle" *ngIf="stepsList[currStep]?.softwares != null">
       <p [innerText]="stepsList[currStep]?.instruction_text"></p>
-    <table class="table"  >
-      <thead>
-        <tr>
-          <th scope="col"></th>
-          <th scope="col">Name</th>
-          <th scope="col">Preis</th>
-          <th scope="col">Link</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let software of stepsList[currStep]?.softwares">
-          <th scope="row">{{software.software_id}}</th>
-          <td>{{software.software_name}}</td>
-          <td>{{software.software_price}}</td>
-          <td><a href="{{software.software_download}}">Download</a></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-<!-- END- Instructions with tabel     -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Name</th>
+            <th scope="col">Preis</th>
+            <th scope="col">Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let software of stepsList[currStep]?.softwares">
+            <th scope="row">{{software.software_id}}</th>
+            <td>{{software.software_name}}</td>
+            <td>{{software.software_price}}</td>
+            <td><a href="{{software.software_download}}">Download</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- END- Instructions with tabel     -->
     <!--     Instructions with questions     -->
 
 
@@ -146,21 +147,22 @@
 
     <!--     Instructions with steps and checked button - BETTLEVELING EDITION   -->
     <div *ngIf="stepsList[currStep]?.instruction_name === 'Bettleveling'">
-      <div class="d-flex justify-content-center flex-nowrap" id="text-left"> 
-      <p [innerText]="stepsList[currStep]?.instruction_text"></p>
-    </div>
-    <div class="d-flex justify-content-center flex-nowrap">
-      <div class="card" style="width: 58rem;">
-        <div class="card-body">
-          <h5 class="card-title">Hast du Auto-Leveling Option?</h5>
-          <button id="smileybutton" [routerLink]="['/bedleveling', 'Auto']"><i class="fa-solid fa-face-laugh-beam"></i>
-            JA!</button>
-          <button id="smileybutton" [routerLink]="['/bedleveling', 'Manuell']"><i class="fa-solid fa-face-frown"></i>
-            NEIN!</button>
+      <div class="d-flex justify-content-center flex-nowrap" id="text-left">
+        <p [innerText]="stepsList[currStep]?.instruction_text"></p>
+      </div>
+      <div class="d-flex justify-content-center flex-nowrap">
+        <div class="card" style="width: 58rem;">
+          <div class="card-body">
+            <h5 class="card-title">Hast du Auto-Leveling Option?</h5>
+            <button id="smileybutton" [routerLink]="['/bedleveling', 'Auto']"><i
+                class="fa-solid fa-face-laugh-beam"></i>
+              JA!</button>
+            <button id="smileybutton" [routerLink]="['/bedleveling', 'Manuell']"><i class="fa-solid fa-face-frown"></i>
+              NEIN!</button>
 
+          </div>
         </div>
       </div>
-    </div>
     </div>
 
 
@@ -188,13 +190,45 @@
     </div>
 
     <!--  END - Instructions with text and img -EXTRUDER        -->
+    <!--  Instructions Test Druck        -->
+    <div *ngIf="stepsList[currStep]?.instruction_name === 'Test Druck'">
+      <div class="d-flex justify-content-center flex-nowrap">
+
+
+        <p> {{stepsList[currStep]?.instruction_text}} - <a href="{{stepsList[currStep]?.instruction_download}}">
+            Ultimaker Cura - Guide</a> </p>
+
+      </div>
+      <div class="text-test">
+        <a href="assets/files/Bed_Levelling.stl" class="btn btn-dark" target="_blank"
+          download="Bed_Levelling.stl">Download Test Druck</a>
+      </div>
+      <div>
+        <h5>Welche Ergebnisse haben Sie bekommen?</h5> 
+        <small> (Mehrfachauswahl ist möglich)</small>
+        <div class="d-flex justify-content-between p-4">
+          <div class="card" style="width: 18rem;" *ngFor="let result of stepsList[currStep]?.results ">
+            <img class="card-img-top" src="{{result.result_img}}">
+            <div class="card-body">
+              
+              <p class="card-text">{{result.result_text}}</p>
+             <input type="checkbox">
+            </div>
+          </div>
+          
+        </div>
+       
+        
+      </div>
+    </div>
+    <!-- END- Instructions Test Druck        -->
 
     <!--     Routing     -->
     <ng-container>
       <div class="d-flex justify-content-between py-3">
         <div class="previousinst">
-          <button class="btn" id="button_nav" [hidden]="currStep == 0" aria-hidden="true" (click)="previousInstruction()"><i
-              class="fa-solid fa-arrow-left-long fa-2x"></i></button>
+          <button class="btn" id="button_nav" [hidden]="currStep == 0" aria-hidden="true"
+            (click)="previousInstruction()"><i class="fa-solid fa-arrow-left-long fa-2x"></i></button>
 
           <button class="btn" id="button_nav" aria-hidden="true" [hidden]="currStep > 0" [routerLink]="['/home']"><i
               class="fa-solid fa-house-circle-xmark fa-2x"></i></button>
@@ -206,11 +240,11 @@
         <div class="nextinst">
           <button class="btn" id="button_nav" aria-hidden="true" (click)="nextInstruction()"
             [hidden]="currStep == stepsList.length - 1"><i class="fa-solid fa-arrow-right-long fa-2x"></i></button>
-          <button class="btn" id="button_nav" aria-hidden="true" [hidden]="currStep < stepsList.length - 1" [routerLink]="['/home']"><i
-              class="fa-solid fa-house-circle-check fa-2x"></i></button>
+          <button class="btn" id="button_nav" aria-hidden="true" [hidden]="currStep < stepsList.length - 1"
+            [routerLink]="['/home']"><i class="fa-solid fa-house-circle-check fa-2x"></i></button>
         </div>
       </div>
-  
+
 
 
 

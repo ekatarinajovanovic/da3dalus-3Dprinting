@@ -6,6 +6,7 @@ import { Filaments } from 'src/models/StepsFilament';
 import { Bed } from '../../models/StepsBed';
 import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EstepsCalculatorComponent } from '../esteps-calculator/esteps-calculator.component';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -39,7 +40,7 @@ export class InstructionsComponent implements OnInit {
 
 
 
-  constructor(private InstructionsService: InstructionsService, private router: Router, private rout: ActivatedRoute, private dialogRef:MatDialogModule) { }
+  constructor(private InstructionsService: InstructionsService, private router: Router, private rout: ActivatedRoute, private dialogRef:MatDialogModule, private http:HttpClient) { }
 
 
   ngOnInit(): void {
@@ -168,6 +169,7 @@ openCalculator(){
 
   )
 }
+
  
 }
 

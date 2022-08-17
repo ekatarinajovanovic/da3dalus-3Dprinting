@@ -12,6 +12,9 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
 import { MatDialogModule } from '@angular/material/dialog';
 import { EstepsCalculatorComponent } from './esteps-calculator/esteps-calculator.component';
 import { BedlevelingComponent } from './bedleveling/bedleveling.component';
+import { UltimakerCuraComponent } from './ultimaker-cura/ultimaker-cura.component';
+import { FilamentComponent } from './filament/filament.component';
+
 
 
 
@@ -23,6 +26,9 @@ import { BedlevelingComponent } from './bedleveling/bedleveling.component';
     InstructionsComponent,
     EstepsCalculatorComponent,
     BedlevelingComponent,
+    UltimakerCuraComponent,
+    FilamentComponent,
+
 
     
     
