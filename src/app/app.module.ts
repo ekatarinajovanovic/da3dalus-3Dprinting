@@ -12,8 +12,11 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
 import { MatDialogModule } from '@angular/material/dialog';
 import { EstepsCalculatorComponent } from './esteps-calculator/esteps-calculator.component';
 import { BedlevelingComponent } from './bedleveling/bedleveling.component';
-import { UltimakerCuraComponent } from './ultimaker-cura/ultimaker-cura.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 import { FilamentComponent } from './filament/filament.component';
+import {TypeService} from "./service/type.service";
+import {FilamentSlicerComponent} from "./filament-slicer/filament-slicer.component";
+
 
 
 
@@ -26,14 +29,15 @@ import { FilamentComponent } from './filament/filament.component';
     InstructionsComponent,
     EstepsCalculatorComponent,
     BedlevelingComponent,
-    UltimakerCuraComponent,
+FilamentSlicerComponent,
     FilamentComponent,
 
 
-    
-    
-    
-    
+
+
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -42,8 +46,8 @@ import { FilamentComponent } from './filament/filament.component';
     YouTubePlayerModule,
     MatDialogModule,
     FormsModule,
-   
-   
+    NgxPaginationModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,13 +1,250 @@
-<div class="d-flex justify-content-center flex-nowrap" *ngFor="let filament of filaments">
+<div class="container">
 
-    <div class="card" style="width: 38rem;">
+  <div class="row">
 
-        <div class="card-body">
+    <div class="col" id="filters">
+      <table>
+        <tr>
+          <th> <h6> Material Type: </h6></th>
+          <td>
+            <form>
 
-            <h5>{{filament.id}}. {{filament.name}} </h5>
-        </div>
+            <select name = "dropdownMaterial" [(ngModel)]="selectedMaterialDL">
+              <option  [value]="''">All</option>
+              <option #ref  *ngFor="let name of names" [value]="name">{{name}}</option>
+            </select>
 
-        
+          </form>
+          </td>
+
+        </tr>
+        <tr>
+          <th><h6> Brands: </h6></th>
+          <td>
+            <form>
+
+              <select name = "dropdownBrand" [(ngModel)]="selectedBrandDL">
+                <option [value]="''">All</option>
+                <option #ref  *ngFor="let brand of brands" [value]="brand">{{brand}}</option>
+              </select>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <th><h6> Farbe: </h6></th>
+          <td>
+            <form>
+              <select name = "dropdownColor" [(ngModel)]="selectedColorDL" >
+                <option [value]="''">All</option>
+                <option #ref  *ngFor="let color of colors" [value]="color">{{color}}</option>
+              </select>
+
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <th> <h6> 3D-Drucker: </h6></th>
+          <td>
+            <form>
+
+              <select name = "dropdownMaterial" [(ngModel)]="selectedPrinterDL">
+                <option  [value]="''">All</option>
+                <option #ref  *ngFor="let name of names" [value]="name">{{name}}</option>
+              </select>
+
+            </form>
+          </td>
+
+        </tr>
+
+
+      </table>
+      <div id="buttonSearch" >
+        <button  (click)="startSearch()" class="btn btn-dark" id="search">Search <i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
     </div>
+<div class="col">
+
+  <table id="details">
+    <tr *ngFor=" let fil of selectedTypes | paginate: { itemsPerPage: 5, currentPage: page }">
+
+      <th>{{fil.materialType}} - {{fil.brand}} - {{fil.color}}</th>
+      <td><button type="button" class="btn btn-dark" id="buttonDetails"  (click)="openDetails(fil.typeId)">Details</button></td>
+    </tr>
+  </table>
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
+
+</div>
+
+
+
+<div class="row">
+  <div class="col">
+<table class="table" id="mainTable" *ngIf="selectedType.typeId != 0">
+  <thead>
+  <tr>
+
+    <th scope="col">Filament</th>
+    <td>{{selectedType.materialType}}</td>
+  </tr>
+  <tr>
+    <th scope="col">Brand</th>
+    <td>{{selectedType.brand}}</td>
+  </tr>
+  <tr>
+    <th scope="col">Farbe</th>
+    <td>{{selectedType.color}}</td>
+  </tr>
+  <tr>
+    <th scope="col">Breite</th>
+    <td>{{selectedType.filamentWidth}}</td>
+  </tr>
+  <tr>
+    <th scope="col">Bed Enclosure</th>
+    <td *ngIf="selectedType.bedEnclosure==true"><i class="fa-solid fa-check"></i></td>
+    <td *ngIf="selectedType.bedEnclosure==false"><i class="fa-solid fa-xmark"></i></td>
+    </tr>
+  <tr>
+    <th scope="col">Bed Adhesion Aid</th>
+    <td>{{selectedType.bedAdhesionAid}}</td>
+  </tr>
+  <tr>
+    <th scope="col">Bed Heating</th>
+    <td>{{selectedType.bedHeating}}</td>
+  </tr>
+  <tr>
+    <th scope="col">Toxic</th>
+    <td *ngIf="selectedType.compositeFilament==true"><i class="fa-solid fa-check"></i></td>
+    <td *ngIf="selectedType.compositeFilament==false"><i class="fa-solid fa-xmark"></i></td>
+  </tr>
+  <tr>
+    <th scope="col">Nozzle Recommendation</th>
+    <td>{{selectedType.nozzleRecommendation}}</td>
+  </tr>
+  <tr>
+    <th scope="col">Nozzle Diameter</th>
+    <td>{{selectedType.nozzleDiameter}}</td>
+  </tr>
+  <tr>
+    <th scope="col">Preparation</th>
+    <td>{{selectedType.preparation}}</td>
+  </tr>
+  <tr>
+    <th scope="col">Filament Path</th>
+    <td>{{selectedType.filamentPath}}</td>
+  </tr>
+  <tr>
+    <th scope="col">Density</th>
+    <td>{{selectedType.density}}</td>
+  </tr>
+  </thead>
+
+</table>
+</div>
+
+  <div class="col">
+    <table class="table" id="slicertable" *ngIf="selectedType.typeId != 0">
+      <thead>
+      <tr>
+        <th scope="col">Enable Retraction</th>
+        <td *ngIf="filament.slicer.enableRetraction==true"><i class="fa-solid fa-check"></i></td>
+        <td *ngIf="filament.slicer.enableRetraction==false"><i class="fa-solid fa-xmark"></i></td>
+      </tr>
+      <tr>
+        <th scope="col">Retraction Distance</th>
+        <td>{{filament.slicer.retractionDIstance}} mm</td>
+      </tr>
+      <tr>
+        <th scope="col">Retraction Speed</th>
+        <td>{{filament.slicer.retractionSpeed}} mm/s</td>
+      </tr>
+      <tr>
+        <th scope="col">Enable Print Cooling</th>
+        <td *ngIf="filament.slicer.enablePrintCooling==true"><i class="fa-solid fa-check"></i></td>
+        <td *ngIf="filament.slicer.enablePrintCooling==false"><i class="fa-solid fa-xmark"></i></td>
+      </tr>
+      <tr>
+        <th scope="col">Fan Speed</th>
+        <td>{{filament.slicer.fanSpeed}} %</td>
+      </tr>
+      <tr>
+        <th scope="col">Regular Fan Speed</th>
+        <td>{{filament.slicer.regFanSpeed}} %</td>
+      </tr>
+      <tr>
+        <th scope="col">Max Fan Speed</th>
+        <td>{{filament.slicer.maxFanSpeed}} %</td>
+      </tr>
+      <tr>
+        <th scope="col">Fan Speed Threshold</th>
+        <td>{{filament.slicer.fanSpeedThreshold}} s</td>
+      </tr>
+      <tr>
+        <th scope="col">Initial Fan Speed</th>
+        <td>{{filament.slicer.initFanSpeed}} %</td>
+      </tr>
+      <tr>
+        <th scope="col">Regula Fan Speed At Layer</th>
+        <td>{{filament.slicer.regFanSpeedAtLayer}} </td>
+      </tr>
+      <tr>
+        <th scope="col">Printing Speed Recommended</th>
+        <td>{{filament.slicer.printSpeedRecommended}} mm/s</td>
+      </tr>
+      <tr>
+        <th scope="col">Initial Layer Speed</th>
+        <td>{{filament.slicer.initLayerSpeed}} mm/s</td>
+      </tr>
+      <tr>
+        <th scope="col">Print Speed Min</th>
+        <td>{{filament.slicer.printSpeedMin}} mm/s</td>
+      </tr>
+      <tr>
+        <th scope="col">Print Speed Max</th>
+        <td>{{filament.slicer.printSpeedMax}} mm/s</td>
+      </tr>
+      <tr>
+        <th scope="col">Printing Temperature</th>
+        <td>{{filament.slicer.printingTemp}} °C</td>
+      </tr>
+      <tr>
+        <th scope="col">Printing Temperature Initial Layer</th>
+        <td>{{filament.slicer.printingTempInitLayer}} °C</td>
+      </tr>
+      <tr>
+        <th scope="col">Printing Temperature Min</th>
+        <td>{{filament.slicer.printingTempMin}} °C</td>
+      </tr>
+      <tr>
+        <th scope="col">Printing Temperature Max</th>
+        <td>{{filament.slicer.printingTempMax}} °C</td>
+      </tr>
+      <tr>
+        <th scope="col">Bed Temperature Min</th>
+        <td>{{filament.slicer.bedTempMin}} °C</td>
+      </tr>
+      <tr>
+        <th scope="col">Bed Temperature Max</th>
+        <td>{{filament.slicer.bedTempMax}} °C</td>
+      </tr>
+      <tr>
+        <th scope="col">Bed Temperature Recommended</th>
+        <td>{{filament.slicer.bedTempRecommended}} °C</td>
+      </tr>
+      <tr>
+        <th scope="col">Layer Height</th>
+        <td>{{filament.slicer.bedTempRecommended}} mm</td>
+      </tr>
+      <tr>
+        <th scope="col">Initial Layer Height</th>
+        <td>{{filament.slicer.initLayerHeight}} mm</td>
+      </tr>
+      </thead>
+    </table>
+
+  </div>
+
+</div>
 </div>
 

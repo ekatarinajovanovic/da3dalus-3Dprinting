@@ -1,0 +1,78 @@
+#mainTable th{
+  background-color: black;
+  color: white;
+  width: 20%;
+  border-color: white;
+
+
+
+}
+#mainTable{
+  width: 80%;
+  border: 1px solid black;
+  margin-top: 2%;
+
+
+
+}
+form{
+  margin-top: 3%;
+
+}
+select{
+  width: 50%;
+}
+
+#radioButtons{
+  border: 1px solid black;
+  margin: 2%;
+
+
+}
+h6{
+  text-align: right;
+}
+#buttonSearch{
+  margin-top: 3%;
+  text-align: left;
+
+}
+#search{
+  width: 20%;
+  background-color: white;
+  color: black;
+}
+#filters select{
+  width: 100%;
+
+}
+#filters{
+  text-align: right;
+}
+#details{
+  width: 90%;
+}
+
+.container{
+  margin-top: 4%;
+}
+
+pagination-controls a.active {
+  background-color: #4CAF50 !important;
+  color: white !important;
+}
+
+pagination a:hover:not(.active) {
+  background-color: #ddd !important;
+}
+#slicertable th{
+  background-color: black;
+  color: white;
+  border-color: white;
+  width: 50%;
+}
+#slicertable{
+  width: 90%;
+  border: 1px solid black;
+  margin-top: 2%;
+}

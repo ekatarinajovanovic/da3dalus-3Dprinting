@@ -7,6 +7,7 @@ import { Bed } from '../../models/StepsBed';
 import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EstepsCalculatorComponent } from '../esteps-calculator/esteps-calculator.component';
 import { HttpClient } from '@angular/common/http';
+import { Fehlers } from '../../models/TestDruck';
 
 
 @Component({
@@ -17,17 +18,14 @@ import { HttpClient } from '@angular/common/http';
 
 export class InstructionsComponent implements OnInit {
   public stepsList: any = [];
-  public stepsExtruder:any=[];
+  public stepsExtruder: any = [];
   public buttonVal: string = "fa-solid fa-x";
   public stepsFilaments: Filaments[] = [];
-  
-  
-  public bedList: any=[];
-  
+  public problems: Fehlers[] = [];
+  public bedList: any = [];
   public video: boolean = false;
   public currentStepFil: number = 0;
   public filamentChecked: boolean = false;
- 
   public currentStep: number = 0;
   public currStep: number = 0;
   public list_size: number = 0;
@@ -38,9 +36,7 @@ export class InstructionsComponent implements OnInit {
   public currentquestion: number = 0;
 
 
-
-
-  constructor(private InstructionsService: InstructionsService, private router: Router, private rout: ActivatedRoute, private dialogRef:MatDialogModule, private http:HttpClient) { }
+  constructor(private InstructionsService: InstructionsService, private router: Router, private rout: ActivatedRoute, private dialogRef: MatDialogModule, private http: HttpClient) { }
 
 
   ngOnInit(): void {
@@ -52,7 +48,7 @@ export class InstructionsComponent implements OnInit {
 
     this.getAllSteps();
 
-this.getAllExtruder();
+    this.getAllExtruder();
 
 
 
@@ -67,8 +63,8 @@ this.getAllExtruder();
 
 
 
-  
-  getAllExtruder(){
+
+  getAllExtruder() {
     this.InstructionsService.getExtruderJson().subscribe(res => {
       this.stepsExtruder = res.extruder;
     });
@@ -99,9 +95,9 @@ this.getAllExtruder();
     this.stepsFilaments.length = 0;
     this.currentStepFil = 0;
     this.buttonVal = "fa-solid fa-x";
-    
-   
-   
+
+
+
 
   }
 
@@ -140,7 +136,7 @@ this.getAllExtruder();
   nextFilament() {
     this.currentStepFil++;
     if (this.currentStepFil < this.stepsList[this.currStep].instructions_filament.length) {
-     
+
 
       this.stepsList[this.currStep].instructions_filament[this.currentStepFil].instructions_filament_checked = true;
       this.buttonVal = "fa-solid fa-check";
@@ -159,17 +155,18 @@ this.getAllExtruder();
 
     }
 
+  }
 
+  openCalculator() {
+    this.router.navigate(
+      ['/e-steps-calculator']
+
+    )
+  }
+  onChange(){
 
   }
-  
-openCalculator(){
-  this.router.navigate(
-    ['/e-steps-calculator']
 
-  )
-}
 
- 
 }
 

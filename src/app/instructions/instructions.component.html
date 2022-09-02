@@ -207,15 +207,16 @@
         <h5>Welche Ergebnisse haben Sie bekommen?</h5> 
         <small> (Mehrfachauswahl ist möglich)</small>
         <div class="d-flex justify-content-between p-4">
+          
           <div class="card" style="width: 18rem;" *ngFor="let result of stepsList[currStep]?.results ">
             <img class="card-img-top" src="{{result.result_img}}">
             <div class="card-body">
               
               <p class="card-text">{{result.result_text}}</p>
-             <input type="checkbox">
+             <input type="checkbox" (change)="onChange()" [(ngModel)]="result.result_checked">
             </div>
           </div>
-          
+       
         </div>
        
         
@@ -244,10 +245,6 @@
             [routerLink]="['/home']"><i class="fa-solid fa-house-circle-check fa-2x"></i></button>
         </div>
       </div>
-
-
-
-
     </ng-container>
 
   </div>
