@@ -6,7 +6,9 @@ import {HeaderComponent} from './header/header.component';
 import { EstepsCalculatorComponent } from './esteps-calculator/esteps-calculator.component';
 import { BedlevelingComponent } from './bedleveling/bedleveling.component';
 import { FilamentComponent } from './filament/filament.component';
-import {FilamentSlicerComponent} from "./filament-slicer/filament-slicer.component";
+import {CreateFilamentComponent} from "./create-filament/create-filament.component";
+
+
 
 
 const routes: Routes = [
@@ -16,7 +18,9 @@ const routes: Routes = [
   {path: "e-steps-calculator", component: EstepsCalculatorComponent},
   {path: "bedleveling/:type", component:BedlevelingComponent},
   {path: "filaments", component:FilamentComponent},
-  {path: "filament_slicer/:filamentid", component:FilamentSlicerComponent}
+  {path: "create", component:CreateFilamentComponent},
+
+
 
 
 

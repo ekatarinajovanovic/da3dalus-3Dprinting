@@ -15,7 +15,9 @@ import { BedlevelingComponent } from './bedleveling/bedleveling.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FilamentComponent } from './filament/filament.component';
 import {TypeService} from "./service/type.service";
-import {FilamentSlicerComponent} from "./filament-slicer/filament-slicer.component";
+import { CreateFilamentComponent } from './create-filament/create-filament.component';
+
+
 
 
 
@@ -29,8 +31,10 @@ import {FilamentSlicerComponent} from "./filament-slicer/filament-slicer.compone
     InstructionsComponent,
     EstepsCalculatorComponent,
     BedlevelingComponent,
-FilamentSlicerComponent,
+
     FilamentComponent,
+     CreateFilamentComponent,
+
 
 
 

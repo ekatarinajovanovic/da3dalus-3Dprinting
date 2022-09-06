@@ -48,19 +48,23 @@
             <form>
 
               <select name = "dropdownMaterial" [(ngModel)]="selectedPrinterDL">
-                <option  [value]="''">All</option>
-                <option #ref  *ngFor="let name of names" [value]="name">{{name}}</option>
+                <option  [value]="0">-Select-</option>
+                <option #ref  *ngFor="let printer of printers" [value]="printer.printerId">{{printer.printerType}}</option>
               </select>
 
             </form>
           </td>
+          <td> <label *ngIf="message!= ''"><i class="fa-sharp fa-solid fa-circle-exclamation"></i> {{message}}</label></td>
 
         </tr>
 
 
       </table>
+
       <div id="buttonSearch" >
+
         <button  (click)="startSearch()" class="btn btn-dark" id="search">Search <i class="fa-solid fa-magnifying-glass"></i></button>
+        <button  [routerLink]="['/create']" class="btn btn-dark">Add new <i class="fa-sharp fa-solid fa-plus"></i></button>
       </div>
     </div>
 <div class="col">
@@ -69,7 +73,11 @@
     <tr *ngFor=" let fil of selectedTypes | paginate: { itemsPerPage: 5, currentPage: page }">
 
       <th>{{fil.materialType}} - {{fil.brand}} - {{fil.color}}</th>
-      <td><button type="button" class="btn btn-dark" id="buttonDetails"  (click)="openDetails(fil.typeId)">Details</button></td>
+      <td><button type="button" class="btn btn-dark" id="buttonDetails"  (click)="openDetails(fil.typeId)">Details</button>
+        <button type="button" class="btn btn-dark" id="buttonDetails"  (click)="openDetails(fil.typeId)"><i class="fa-regular fa-pen-to-square"></i></button>
+        <button type="button" class="btn btn-dark" id="buttonDetails"  (click)="openDetails(fil.typeId)"><i class="fa-solid fa-trash"></i></button>
+      </td>
+
     </tr>
   </table>
   <pagination-controls (pageChange)="page = $event"></pagination-controls>
@@ -80,8 +88,9 @@
 
 
 <div class="row">
-  <div class="col">
-<table class="table" id="mainTable" *ngIf="selectedType.typeId != 0">
+  <div class="col"  *ngIf="selectedType.typeId != 0">
+    <h5>Filament Details</h5>
+<table class="table" id="mainTable">
   <thead>
   <tr>
 
@@ -142,9 +151,9 @@
 
 </table>
 </div>
-
-  <div class="col">
-    <table class="table" id="slicertable" *ngIf="selectedType.typeId != 0">
+  <div class="col" *ngIf="selectedType.typeId != 0">
+    <h5>Slicer Einstellungen</h5>
+    <table class="table" id="slicertable" >
       <thead>
       <tr>
         <th scope="col">Enable Retraction</th>
