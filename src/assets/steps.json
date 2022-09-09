@@ -19,21 +19,21 @@
 
                 },
                 {
-                    
+
                     "software_id": 2,
                     "software_name": "Pronterface (3D printing host software)",
                     "software_price": "Kostenlos",
                     "software_download": "https://www.pronterface.com/#download"
                 }
             ]
-            
+
         },
         {
             "instruction_id": 3,
             "instruction_name": "Aufbaukontrolle",
             "questions": [
                 {
-                    
+
                     "question_id": 1,
                     "question_button": "Radio",
                     "question_name": "Hast du das Rechtwinkligkeit überprüft?",
@@ -88,7 +88,7 @@
                         }
                     ]
                 },
-              
+
                 {
                     "question_id": 4,
                     "question_button": "Radio",
@@ -159,7 +159,7 @@
         {
             "instruction_id": 6,
             "instruction_name": "Extruder kalibrieren"
-            
+
         },
         {
             "instruction_id": 7,
@@ -177,34 +177,34 @@
                     "result_id":1,
                     "result_img": "assets/img/result1.PNG",
                     "result_text": "Filament sitz auf dem Bett, große Lücken zwischen der Extrusion",
-                    "result_solution":"",
+                    "result_solution":"Düse ist viel zu weit",
                     "result_checked":false
                 },
                 {
                     "result_id":2,
                     "result_img": "assets/img/result2.PNG",
                     "result_text": "Abstand zwischen der Extrusion, kann immer noch Bett durch Infill sehen",
-                    "result_solution":"",
+                    "result_solution":"Düse ist zu weit",
                     "result_checked":false
                 },
                 {
                     "result_id":3,
                     "result_img": "assets/img/result3.PNG",
                     "result_text": "Keine Lücken zwischen den Extrusionen, keine Grate aus überschüssigem Filament",
-                    "result_solution":"",
+                    "result_solution":"Genau richtig",
                     "result_checked":false
                 },
                 {
                     "result_id":4,
                     "result_img": "assets/img/result4.PNG",
                     "result_text": "Filament ist dünn und durchscheinend an einigen Stellen Grate von überschüssigem Filament",
-                    "result_solution":"",
+                    "result_solution":"Düse ist zu nah",
                     "result_checked":false
                 }
             ]
-            
+
         }
-        
+
     ]
-  
+
 }

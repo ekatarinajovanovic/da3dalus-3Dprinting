@@ -16,6 +16,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { FilamentComponent } from './filament/filament.component';
 import {TypeService} from "./service/type.service";
 import { CreateFilamentComponent } from './create-filament/create-filament.component';
+import { UpdateFilamentComponent } from './update-filament/update-filament.component';
+import { EditFilamentComponent } from './edit-filament/edit-filament.component';
 
 
 
@@ -34,6 +36,8 @@ import { CreateFilamentComponent } from './create-filament/create-filament.compo
 
     FilamentComponent,
      CreateFilamentComponent,
+     UpdateFilamentComponent,
+     EditFilamentComponent,
 
 
 

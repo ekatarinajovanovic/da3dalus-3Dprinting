@@ -22,8 +22,12 @@ form{
   margin-top: 3%;
 
 }
-select{
-  width: 50%;
+
+
+
+:host ::ng-deep .ngx-pagination .current {
+  background-color: #455A64;
+  border-color: black;
 }
 
 #radioButtons{
@@ -54,20 +58,14 @@ h6{
 }
 #details{
   width: 90%;
+  margin-bottom: 3%;
 }
 
 .container{
   margin-top: 4%;
 }
 
-pagination-controls a.active {
-  background-color: #4CAF50 !important;
-  color: white !important;
-}
 
-pagination a:hover:not(.active) {
-  background-color: #ddd !important;
-}
 #slicertable th{
   background-color: black;
   color: white;
@@ -77,5 +75,9 @@ pagination a:hover:not(.active) {
 #slicertable{
   width: 90%;
   border: 1px solid black;
+  margin-top: 2%;
+}
+
+#detailsandslicerdiv{
   margin-top: 2%;
 }

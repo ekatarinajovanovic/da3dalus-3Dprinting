@@ -7,6 +7,7 @@ import { EstepsCalculatorComponent } from './esteps-calculator/esteps-calculator
 import { BedlevelingComponent } from './bedleveling/bedleveling.component';
 import { FilamentComponent } from './filament/filament.component';
 import {CreateFilamentComponent} from "./create-filament/create-filament.component";
+import {UpdateFilamentComponent} from "./update-filament/update-filament.component";
 
 
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: "bedleveling/:type", component:BedlevelingComponent},
   {path: "filaments", component:FilamentComponent},
   {path: "create", component:CreateFilamentComponent},
+  {path: "update/:id", component:UpdateFilamentComponent},
 
 
 
