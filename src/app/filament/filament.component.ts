@@ -31,6 +31,7 @@ export class FilamentComponent implements OnInit {
   public selectedMaterialDL: String = "";
   public selectedPrinterDL: number = 0;
   public selectedWidthDL: number=0;
+  public jsonText: String= "";
   public selectedprinter: Printer = {printerId: 0, printerType: "", bedMaterial: ""};
   public selectedBrandDL: String = "";
   public selectedColorDL: String = "";
@@ -105,6 +106,7 @@ export class FilamentComponent implements OnInit {
     type: this.typedelete,
     printer: this.selectedprinter
   };
+
 
 
   constructor(private typeservice: TypeService, private slicerservice: SlicerService, private filamentservice: FilamentService, private printerservice: PrinterService) {
@@ -351,6 +353,34 @@ this.showtable=true;
 
 
   }
+  private setting = {
+    element: {
+      dynamicDownload: null as unknown as HTMLElement
+    }
+  }
+  private dyanmicDownloadByHtmlTag(arg: {
+    fileName: string,
+    text: string
+  }) {
+    if (!this.setting.element.dynamicDownload) {
+      this.setting.element.dynamicDownload = document.createElement('a');
+    }
+    const element = this.setting.element.dynamicDownload;
+    element.setAttribute('href', `data:text/plain;charset=utf-8,${encodeURIComponent(arg.text)}`);
+    element.setAttribute('download', arg.fileName);
+
+    var event = new MouseEvent("click");
+    element.dispatchEvent(event);
+  }
+
+  public export(value : Filament){
+    this.dyanmicDownloadByHtmlTag({
+      fileName: value.type.materialType + '-' + value.type.brand + '-' + value.type.color + '- Slicer',
+      text: JSON.stringify(value)
+    });
+
+
+  }
 
   public delete(value: number) {
 
@@ -385,6 +415,7 @@ this.slicerservice.deleteSlicer(this.filamentdelete.slicer.slicerId).subscribe(d
             })
 this.filamentservice.deleteFilament(this.filamentdelete.filamentId).subscribe(data=>{
   console.log(data);
+
   Swal.fire({
     title: 'Gelöscht!',
     text: 'Daten werden erfolgreich gelöscht',
@@ -393,7 +424,13 @@ this.filamentservice.deleteFilament(this.filamentdelete.filamentId).subscribe(da
     timer:1000
   })
 setTimeout(()=>{
-  this.startSearch();
+
+  if(this.filaments.length==1){
+    location.reload();
+  }
+  else{
+    this.startSearch();
+  }
 }, 1000);
 
 

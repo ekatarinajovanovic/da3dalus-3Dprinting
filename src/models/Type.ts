@@ -14,3 +14,4 @@ export interface Type {
   filamentPath : string,
   density : number
 }
+

@@ -152,9 +152,10 @@
   </thead>
 
 </table>
+
 </div>
   <div class="col" *ngIf="showtable">
-    <h5>Slicer Einstellungen</h5>
+    <h5>Slicer Einstellungen <button type="button" class="btn btn-dark" id="buttonDetails"  (click)="export(filament)"><i class="fa-solid fa-file-export"></i> Export</button></h5>
     <table class="table" id="slicertable" >
       <thead>
       <tr>
